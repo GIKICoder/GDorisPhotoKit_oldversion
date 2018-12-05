@@ -22,7 +22,8 @@
 - [ ] 支持GPUImage，用于实现更加强大的图片特效处理。
 - [ ] 支持iCloud图片下载。
 - [ ] 完善框架，尽可能的实现松散的耦合。可以支持自定义组合。
-
+- [ ] 优化框photoKit使用流畅度，优化内存占用，优化大图加载。
+- [ ] 未完待续......
 
 [![Alt][screenshot1_thumb]][screenshot1]    [![Alt][screenshot2_thumb]][screenshot2]    [![Alt][screenshot3_thumb]][screenshot3]    [![Alt][screenshot4_thumb]][screenshot4]    [![Alt][screenshot5_thumb]][screenshot5]    [![Alt][screenshot6_thumb]][screenshot6]
 
