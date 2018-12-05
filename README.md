@@ -25,6 +25,7 @@
 - [ ] 优化框photoKit使用流畅度，优化内存占用，优化大图加载。
 - [ ] 未完待续......
 
+
 [![Alt][screenshot1_thumb]][screenshot1]    [![Alt][screenshot2_thumb]][screenshot2]    [![Alt][screenshot3_thumb]][screenshot3]    [![Alt][screenshot4_thumb]][screenshot4]    [![Alt][screenshot5_thumb]][screenshot5]    [![Alt][screenshot6_thumb]][screenshot6]
 
 [screenshot1_thumb]: https://github.com/GIKICoder/GDorisPhotoKit/blob/master/screenshot/001.PNG
