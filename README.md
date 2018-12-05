@@ -1,6 +1,19 @@
 # GDorisPhotoKit (alpha)
 ## Github上的相册资源相关的开源库大多数代码质量不高，目的是构建一个强大的相册选择，浏览，编辑的代码库。
 目前代码还在alpha Test阶段，一些功能还在实现阶段。大部分功能均没经过单元测试。不可用于成熟的项目中。
+### <a id="已完成功能"></a>已完成功能
+
+- [x] photoKitManager对photokit常用操作封装。
+- [x] 提供一套baseKit基础库代码，尽可能上层业务无耦合封装。
+- [x] 预览快速选择、可设置预览最大数 
+- [x] photoPicker支持滑动多选
+- [x] 支持Gif、LivePhoto(iOS9.0)、video展示
+- [x] 支持3D Touch预览
+- [x] 预览已选择照片
+- [x] 支持预览照片转场动画
+- [x] 支持长图手势兼容
+
+
 
 [![Alt][screenshot1_thumb]][screenshot1]    [![Alt][screenshot2_thumb]][screenshot2]    [![Alt][screenshot3_thumb]][screenshot3]    [![Alt][screenshot4_thumb]][screenshot4]    [![Alt][screenshot5_thumb]][screenshot5]    [![Alt][screenshot6_thumb]][screenshot6]
 
