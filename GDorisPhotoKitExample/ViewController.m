@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "GDorisWXPhotoPickerController.h"
+
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSArray * datas;
 @property (nonatomic, strong) UITableView * tableView;
