@@ -1,0 +1,30 @@
+PODS:
+  - TOCropViewController (2.4.0)
+  - YYCache (1.0.4)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+  - YYWebImage (1.0.5):
+    - YYCache
+    - YYImage
+
+DEPENDENCIES:
+  - TOCropViewController
+  - YYWebImage
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - TOCropViewController
+    - YYCache
+    - YYImage
+    - YYWebImage
+
+SPEC CHECKSUMS:
+  TOCropViewController: 368d8df3ea43b62c3dc5a61f11b9048274d240bd
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
+
+PODFILE CHECKSUM: 46016196252d21f2fb6e3d6153cf32e703a9593a
+
+COCOAPODS: 1.5.3
