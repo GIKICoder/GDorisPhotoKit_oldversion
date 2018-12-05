@@ -12,7 +12,16 @@
 - [x] 预览已选择照片
 - [x] 支持预览照片转场动画
 - [x] 支持长图手势兼容
+- [x] 支持自定义导航栏
+- [x] 支持智能相册选择
 
+### <a id="待完成功能"></a>待完成功能
+- [ ] 完善图片编辑功能
+- [ ] 开放图片浏览器功能，基础库可用于网络图片浏览。
+- [ ] 完善视频选择，编辑功能
+- [ ] 支持GPUImage，用于实现更加强大的图片特效处理。
+- [ ] 支持iCloud图片下载。
+- [ ] 完善框架，尽可能的实现松散的耦合。可以支持自定义组合。
 
 
 [![Alt][screenshot1_thumb]][screenshot1]    [![Alt][screenshot2_thumb]][screenshot2]    [![Alt][screenshot3_thumb]][screenshot3]    [![Alt][screenshot4_thumb]][screenshot4]    [![Alt][screenshot5_thumb]][screenshot5]    [![Alt][screenshot6_thumb]][screenshot6]
