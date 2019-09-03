@@ -140,7 +140,7 @@
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GDorisPhotoBrowserContentCell * browserCell = (GDorisPhotoBrowserContentCell *)cell;
-    GDorisAsset * asset = self.PhotoDatas[indexPath.row];
+    GDorisAsset * asset = [self.PhotoDatas objectAtIndex:indexPath.item];
     [browserCell configWillDisplayCellData:asset forItemAtIndexPath:indexPath];
     [self browserWillDisplayCell:cell forItemAtIndexPath:indexPath];
 }

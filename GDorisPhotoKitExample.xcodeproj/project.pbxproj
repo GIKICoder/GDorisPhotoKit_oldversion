@@ -341,7 +341,6 @@
 				2BBF09AB21B80D32006132E6 /* GDorisPhotoCore */,
 				2BBF09A621B80D31006132E6 /* GDorisTransition */,
 				2BBF0A1821B80D32006132E6 /* PhotoBrowser */,
-				2BBF0A1621B80D32006132E6 /* PhotoEdit */,
 			);
 			path = GDorisPhotoKit;
 			sourceTree = SOURCE_ROOT;
@@ -388,10 +387,10 @@
 		2BBF09A621B80D31006132E6 /* GDorisTransition */ = {
 			isa = PBXGroup;
 			children = (
-				2BBF09A721B80D32006132E6 /* GDorisScrollerPanGesutreRecognizer.m */,
 				2BBF09A821B80D32006132E6 /* GDorisPhotoZoomAnimatedTransition.h */,
-				2BBF09A921B80D32006132E6 /* GDorisScrollerPanGesutreRecognizer.h */,
 				2BBF09AA21B80D32006132E6 /* GDorisPhotoZoomAnimatedTransition.m */,
+				2BBF09A921B80D32006132E6 /* GDorisScrollerPanGesutreRecognizer.h */,
+				2BBF09A721B80D32006132E6 /* GDorisScrollerPanGesutreRecognizer.m */,
 			);
 			path = GDorisTransition;
 			sourceTree = "<group>";
@@ -621,21 +620,6 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		2BBF0A1621B80D32006132E6 /* PhotoEdit */ = {
-			isa = PBXGroup;
-			children = (
-				2BBF0A1721B80D32006132E6 /* PhotoEditHelper */,
-			);
-			path = PhotoEdit;
-			sourceTree = "<group>";
-		};
-		2BBF0A1721B80D32006132E6 /* PhotoEditHelper */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PhotoEditHelper;
-			sourceTree = "<group>";
-		};
 		2BBF0A1821B80D32006132E6 /* PhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -818,7 +802,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GDorisPhotoKitExample/Pods-GDorisPhotoKitExample-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-GDorisPhotoKitExample/Pods-GDorisPhotoKitExample-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/TOCropViewController/TOCropViewControllerBundle.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -827,7 +811,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GDorisPhotoKitExample/Pods-GDorisPhotoKitExample-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GDorisPhotoKitExample/Pods-GDorisPhotoKitExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BAA33724AE65DE3DF61AF618 /* [CP] Check Pods Manifest.lock */ = {
@@ -1104,8 +1088,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RCF9CM736N;
+				DEVELOPMENT_TEAM = S4NWU843M5;
 				INFOPLIST_FILE = GDorisPhotoKitExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1122,8 +1107,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RCF9CM736N;
+				DEVELOPMENT_TEAM = S4NWU843M5;
 				INFOPLIST_FILE = GDorisPhotoKitExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
