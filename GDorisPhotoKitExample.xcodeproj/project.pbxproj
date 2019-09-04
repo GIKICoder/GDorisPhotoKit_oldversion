@@ -403,6 +403,8 @@
 				2BA1A7C1231FF4DB0047CAED /* GDorisBasePhotoPickerController.h */,
 				2BA1A7C3231FF4DB0047CAED /* GDorisBasePhotoPickerController.m */,
 				2BA1A7C0231FF4DB0047CAED /* GDorisPhotoPickerControllerInternal.h */,
+				2BA1A850231FF9270047CAED /* GDorisBasePhotoPickerBrowserController.h */,
+				2BA1A851231FF9270047CAED /* GDorisBasePhotoPickerBrowserController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -427,6 +429,8 @@
 				2BA1A7C7231FF4DB0047CAED /* GDorisPhotoPickerCellProtocol.h */,
 				2BA1A7C5231FF4DB0047CAED /* GDorisProgressView.h */,
 				2BA1A7CF231FF4DB0047CAED /* GDorisProgressView.m */,
+				2BA1A853232002910047CAED /* GDorisPhotoPickerBrowserCell.h */,
+				2BA1A854232002910047CAED /* GDorisPhotoPickerBrowserCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -545,8 +549,6 @@
 			children = (
 				2BA1A80D231FF4DB0047CAED /* GDorisBasePhotoBrowserController.h */,
 				2BA1A80F231FF4DB0047CAED /* GDorisBasePhotoBrowserController.m */,
-				2BA1A850231FF9270047CAED /* GDorisBasePhotoPickerBrowserController.h */,
-				2BA1A851231FF9270047CAED /* GDorisBasePhotoPickerBrowserController.m */,
 				2BA1A810231FF4DB0047CAED /* GDorisPhotoBrowserControllerInternal.h */,
 				2BA1A80E231FF4DB0047CAED /* GDorisPhotoBrowserDelegate.h */,
 			);
@@ -560,8 +562,6 @@
 				2BA1A81B231FF4DB0047CAED /* GDorisLargeImageView.m */,
 				2BA1A815231FF4DB0047CAED /* GDorisPhotoBrowserAnimationCell.h */,
 				2BA1A819231FF4DB0047CAED /* GDorisPhotoBrowserAnimationCell.m */,
-				2BA1A853232002910047CAED /* GDorisPhotoPickerBrowserCell.h */,
-				2BA1A854232002910047CAED /* GDorisPhotoPickerBrowserCell.m */,
 				2BA1A81A231FF4DB0047CAED /* GDorisPhotoBrowserContentCell.h */,
 				2BA1A816231FF4DB0047CAED /* GDorisPhotoBrowserContentCell.m */,
 				2BA1A812231FF4DB0047CAED /* GDorisPhotoBrowserVideoCell.h */,

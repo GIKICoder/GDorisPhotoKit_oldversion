@@ -8,7 +8,6 @@
 
 #import "GDorisPhotoBrowserAnimationCell.h"
 #import "YYImage.h"
-#import "XCAsset.h"
 #import "YYWebImage.h"
 @interface GDorisPhotoBrowserAnimationCell ()
 @property (nonatomic, strong) YYAnimatedImageView * animateImageView;
@@ -76,13 +75,6 @@
             [self loadPlaceHolderImage:placeHolder];
         }
     }
-    /// photokit asset
-    if (Doris_Select(photo, @selector(asset))) {
-        if (photo.asset && [photo.asset isKindOfClass:XCAsset.class]) {
-            [self loadAssetItem:photo.asset];
-            return;
-        }
-    }
     if (Doris_Select(photo,@selector(localImageName)) && Doris_NOEmpty(photo.localImageName)) {
         [self loadLocalImageName:photo.localImageName];
         return;
@@ -111,39 +103,6 @@
 }
 
 #pragma mark - Private Method
-
-- (void)loadAssetItem:(XCAsset *)asset
-{
-    BOOL isGif = (asset.assetSubType == XCAssetSubTypeGIF);
-    __weak __typeof(self) weakSelf = self;
-    CGSize size = asset.imageSize;
-    [self fitImageSize:size containerSize:self.scrollView.bounds.size Completed:^(CGRect containerFrame, CGSize scrollContentSize) {
-        weakSelf.scrollView.contentSize = scrollContentSize;
-        weakSelf.scrollSize = scrollContentSize;
-        // 更新 imageView 的大小时，imageView 可能已经被缩放过，所以要应用当前的缩放
-        weakSelf.contentImageView.frame = CGRectApplyAffineTransform(containerFrame, weakSelf.contentImageView.transform);
-    }];
-    UIImage * image  = [asset thumbnailWithSize:asset.imageSize];
-    self.contentImageView.image = image;
-    if (isGif) {
-        [asset requestImageData:^(NSData * _Nonnull imageData, NSDictionary<NSString *,id> * _Nonnull info, BOOL isGIF, BOOL isHEIC) {
-            if (imageData) {
-                YYImage * image = [YYImage imageWithData:imageData];
-                weakSelf.contentImageView.image = image;
-            }
-            [weakSelf.photoIndicatorView stopAnimating];
-        }];
-    } else {
-        [asset requestPreviewImageWithCompletion:^(UIImage * _Nonnull result, NSDictionary<NSString *,id> * _Nonnull info) {
-            if (result) {
-                weakSelf.contentImageView.image = result;
-            }
-            [weakSelf.photoIndicatorView stopAnimating];
-        } withProgressHandler:^(double progress, NSError * _Nullable error, BOOL * _Nonnull stop, NSDictionary * _Nullable info) {
-            
-        }];
-    }
-}
 
 - (void)loadLocalImage:(UIImage *)image
 {

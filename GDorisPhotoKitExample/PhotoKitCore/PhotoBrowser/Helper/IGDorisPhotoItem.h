@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol IGDorisPhotoItem <NSObject>
 
 @required
-@property (nonatomic, strong) Class cellClass;
+@property (nonatomic, copy  ) NSString * dorisBrowserCellClass;
 @property (nonatomic, assign) NSInteger  itemIndex;
 
 @optional

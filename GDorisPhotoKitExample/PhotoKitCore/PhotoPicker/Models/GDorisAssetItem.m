@@ -32,12 +32,17 @@
         self.configuration = configuration;
         self.index = index;
         self.asset = asset;
-        if (configuration.livePhotoEnabled && asset.assetSubType == XCAssetSubTypeLivePhoto) {
-            self.cellClass = NSStringFromClass([GDorisLivePhotoPickerCell class]);
-        } else if (configuration.gifPhotoEnabled && asset.assetSubType == XCAssetSubTypeGIF) {
+        if (configuration.gifPhotoEnabled && asset.assetSubType == XCAssetSubTypeGIF) {
             self.cellClass = NSStringFromClass([GDorisGifPhotoPickerCell class]);
         } else {
             self.cellClass = NSStringFromClass([GDorisPhotoPickerBaseCell class]);
+        }
+        if (@available(iOS 9.1, *)) {
+            if (configuration.livePhotoEnabled && asset.assetSubType == XCAssetSubTypeLivePhoto) {
+                self.cellClass = NSStringFromClass([GDorisLivePhotoPickerCell class]);
+            }
+        } else {
+            // Fallback on earlier versions
         }
     }
     return self;
@@ -66,9 +71,16 @@
         NSArray *assetResources = [PHAssetResource assetResourcesForAsset:_asset.phAsset];
         PHAssetResource *resource;
         for (PHAssetResource *assetRes in assetResources) {
-            if (assetRes.type == PHAssetResourceTypePairedVideo ||
-                assetRes.type == PHAssetResourceTypeVideo) {
-                resource = assetRes;
+          
+            if (@available(iOS 9.1, *)) {
+                if (assetRes.type == PHAssetResourceTypePairedVideo ||
+                    assetRes.type == PHAssetResourceTypeVideo) {
+                    resource = assetRes;
+                }
+            } else {
+                if (assetRes.type == PHAssetResourceTypeVideo) {
+                    resource = assetRes;
+                }
             }
         }
         if (resource.originalFilename) {
