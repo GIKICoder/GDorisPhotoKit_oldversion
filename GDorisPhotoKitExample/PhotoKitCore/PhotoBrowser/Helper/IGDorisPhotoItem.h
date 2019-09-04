@@ -12,11 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol IGDorisPhotoItem <NSObject>
 
-@required
+@optional
 - (NSString *)photoUrl;
 - (NSString *)placeholder;
-
-@optional
 - (NSString *)originUrl;
 - (NSString *)thumbUrl;
 - (NSString *)localImageName;

@@ -7,7 +7,6 @@
 //
 
 #import "GDorisPhotoBrowserContentCell.h"
-//#import "DGActivityIndicatorView.h"
 
 @interface GDorisPhotoBrowserContentCell ()<UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView  *scrollView;
@@ -114,19 +113,6 @@
     self.scrollView.contentSize = self.scrollSize;
 }
 
-
-
-//- (DGActivityIndicatorView *)photoIndicatorView
-//{
-//    if (!_photoIndicatorView) {
-//        _photoIndicatorView = [[DGActivityIndicatorView alloc] initWithType:(DGActivityIndicatorAnimationTypeBallSpinFadeLoader) tintColor:[UIColor whiteColor]];
-//        CGFloat width = 50;
-//        _photoIndicatorView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width-width)*0.5, ([UIScreen mainScreen].bounds.size.height-width)*0.5, width,width);
-//        [self.scrollView addSubview:_photoIndicatorView];
-//    }
-//    return _photoIndicatorView;
-//}
-
 #pragma mark - GestureRecognizer
 
 - (UITapGestureRecognizer *)singleTapGestureRecognizer
@@ -214,7 +200,6 @@
         x = 0;
         y = (containerHeight - height) / 2.0;
         contentSize = CGSizeMake(containerWidth, containerHeight);
-        
     } else {
         x = 0;
         y = 0;

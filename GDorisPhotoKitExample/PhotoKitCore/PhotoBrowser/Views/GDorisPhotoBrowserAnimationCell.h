@@ -7,7 +7,7 @@
 //
 
 #import "GDorisPhotoBrowserContentCell.h"
-
+#import "YYImage.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GDorisPhotoBrowserAnimationCell : GDorisPhotoBrowserContentCell

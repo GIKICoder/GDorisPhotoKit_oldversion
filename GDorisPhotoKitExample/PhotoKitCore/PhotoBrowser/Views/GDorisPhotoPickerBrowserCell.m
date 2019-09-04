@@ -1,22 +1,20 @@
 //
-//  GDorisPhotoBrowserAnimationCell.m
-//  GDoris
+//  GDorisPhotoPickerBrowserCell.m
+//  GDorisPhotoKitExample
 //
-//  Created by GIKI on 2019/4/6.
-//  Copyright © 2019年 GIKI. All rights reserved.
+//  Created by GIKI on 2019/9/4.
+//  Copyright © 2019 GIKI. All rights reserved.
 //
 
-#import "GDorisPhotoBrowserAnimationCell.h"
+#import "GDorisPhotoPickerBrowserCell.h"
 #import "YYImage.h"
 #import "XCAsset.h"
-#import "YYWebImage.h"
-@interface GDorisPhotoBrowserAnimationCell ()
+@interface GDorisPhotoPickerBrowserCell()
 @property (nonatomic, strong) YYAnimatedImageView * animateImageView;
 @property (nonatomic, strong) UIActivityIndicatorView * photoIndicatorView;
 @end
 
-@implementation GDorisPhotoBrowserAnimationCell
-
+@implementation GDorisPhotoPickerBrowserCell
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -43,6 +41,7 @@
     }
     return _photoIndicatorView;
 }
+
 #pragma mark - override Method
 
 - (__kindof UIView *)containerView
@@ -58,43 +57,11 @@
     [self.photoIndicatorView startAnimating];
     self.contentImageView.image = nil;
     id<IGDorisPhotoItem> photo = self.photoItem;
-    UIImage * placeHolder = [UIImage imageNamed:@"XC_photobrowser_placeholder"];
-    if (Doris_Select(photo, @selector(placeholder)) && Doris_NOEmpty(photo.placeholder)) {
-        placeHolder = [UIImage imageNamed:photo.placeholder];
-    }
-    if (Doris_Select(photo, @selector(thumbImage))) {
-        UIImage * image = photo.thumbImage;
-        if (image) {
-            [self loadLocalImage:image];
-        } else {
-            if (placeHolder ) {
-                [self loadPlaceHolderImage:placeHolder];
-            }
-        }
-    } else {
-        if (placeHolder ) {
-            [self loadPlaceHolderImage:placeHolder];
-        }
-    }
     /// photokit asset
     if (Doris_Select(photo, @selector(asset))) {
         if (photo.asset && [photo.asset isKindOfClass:XCAsset.class]) {
             [self loadAssetItem:photo.asset];
-            return;
         }
-    }
-    if (Doris_Select(photo,@selector(localImageName)) && Doris_NOEmpty(photo.localImageName)) {
-        [self loadLocalImageName:photo.localImageName];
-        return;
-    }
-    /// photo thumburl not return
-    if (Doris_Select(photo,@selector(thumbUrl)) && Doris_NOEmpty(photo.thumbUrl)) {
-        NSURL * url = [NSURL URLWithString:photo.thumbUrl];
-        [self loadThumbImage:url];
-    }
-    if (Doris_Select(photo,@selector(photoUrl)) && Doris_NOEmpty(photo.photoUrl)) {
-        NSURL * url = [NSURL URLWithString:photo.photoUrl];
-        [self loadPreviewImage:url];
     }
 }
 
@@ -144,51 +111,4 @@
         }];
     }
 }
-
-- (void)loadLocalImage:(UIImage *)image
-{
-    if (self.contentImageView && image) {
-        self.contentImageView.image = image;
-        [self processSizeWithImage:image imageContainer:self.contentImageView];
-    }
-}
-
-- (void)loadLocalImageName:(NSString *)imageName
-{
-    if (self.contentImageView && imageName) {
-        YYImage * image = [YYImage imageNamed:imageName];
-        [self processSizeWithImage:image imageContainer:self.contentImageView];
-        self.contentImageView.image = image;
-    }
-    [self.photoIndicatorView stopAnimating];
-}
-
-- (void)loadThumbImage:(NSURL *)thumbURL
-{
-    if (thumbURL && self.contentImageView) {
-        __weak __typeof(self) weakSelf = self;
-        [self.contentImageView yy_setImageWithURL:thumbURL placeholder:nil options:(YYWebImageOptionIgnorePlaceHolder) completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-            [weakSelf processSizeWithImage:image imageContainer:weakSelf.contentImageView];
-        }];
-    }
-}
-
-- (void)loadPlaceHolderImage:(UIImage *)placeHolder
-{}
-
-- (void)loadPreviewImage:(NSURL *)previewURL
-{
-    if (previewURL && self.contentImageView) {
-        [self.scrollView bringSubviewToFront:self.photoIndicatorView];
-        __weak __typeof(self) weakSelf = self;
-        [self.contentImageView yy_setImageWithURL:previewURL placeholder:nil options:(YYWebImageOptionIgnorePlaceHolder) completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-            [weakSelf.photoIndicatorView stopAnimating];
-            if (image) {
-                [weakSelf processSizeWithImage:image imageContainer:weakSelf.contentImageView];
-                [weakSelf.contentImageView startAnimating];
-            }
-        }];
-    }
-}
-
 @end

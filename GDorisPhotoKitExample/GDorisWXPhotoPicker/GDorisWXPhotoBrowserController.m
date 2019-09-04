@@ -364,7 +364,7 @@
 
 - (void)endGestureHandler:(BOOL)isCanceled
 {
-    if (!isCanceled) {
+    if (isCanceled) {
         [self setToolbarHidden:NO animated:NO];
     }
 }

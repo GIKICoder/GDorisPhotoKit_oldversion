@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "IGDorisPhotoItem.h"
-#import "YYWebImage.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 #define Doris_NOEmpty(str) (str!=nil&&[str isKindOfClass:[NSString class]]&&[(NSString *)str length]>0)
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) id<IGDorisPhotoItem>  photoItem;
 @property (nonatomic, assign) CGSize  scrollSize;
-@property(nonatomic, copy) void (^SingleTapHandler)(__kindof id data);
+@property (nonatomic, copy  ) void (^SingleTapHandler)(__kindof id data);
 @property (nonatomic, assign) BOOL  zoomEnabled;
 
 
@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)disabledAllGesture:(BOOL)disabled;
 - (void)disabledSingleGesture:(BOOL)disabled;
 
-- (void)fulFillImageView:(YYAnimatedImageView *)imageView;
+- (void)fulFillImageView:(UIImageView *)imageView;
 
 - (void)fitImageSize:(CGSize)imageSize containerSize:(CGSize)containerSize Completed:(void(^)(CGRect containerFrame, CGSize scrollContentSize))completed;
 

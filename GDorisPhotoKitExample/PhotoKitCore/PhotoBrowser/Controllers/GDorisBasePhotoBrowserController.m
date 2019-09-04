@@ -12,7 +12,7 @@
 #import "GDorisPhotoBrowserAnimationCell.h"
 #import "GDorisPhotoBrowserControllerInternal.h"
 #import "GDorisPhotoBrowserVideoCell.h"
-
+#import "GDorisPhotoPickerBrowserCell.h"
 #define GDorisWidth ([[UIScreen mainScreen] bounds].size.width)
 #define GDorisHeight ([[UIScreen mainScreen] bounds].size.height)
 @interface GDorisBasePhotoBrowserController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -95,6 +95,8 @@
         }
         [_collectionView registerClass:[GDorisPhotoBrowserAnimationCell class] forCellWithReuseIdentifier:@"GDorisPhotoBrowserAnimationCell"];
         [_collectionView registerClass:[GDorisPhotoBrowserVideoCell class] forCellWithReuseIdentifier:@"GDorisPhotoBrowserVideoCell"];
+        [_collectionView registerClass:[GDorisPhotoPickerBrowserCell class] forCellWithReuseIdentifier:@"GDorisPhotoPickerBrowserCell"];
+        
         _collectionView;
     })];
 }
@@ -149,7 +151,7 @@
     }
     id<IGDorisPhotoItem> object = [self.PhotoDatas objectAtIndex:indexPath.row];
 
-    NSString * Identifier = NSStringFromClass(GDorisPhotoBrowserAnimationCell.class);
+    NSString * Identifier = NSStringFromClass(GDorisPhotoPickerBrowserCell.class);
     if (object && [object respondsToSelector:@selector(isVideo)] && object.isVideo) {
         Identifier = NSStringFromClass(GDorisPhotoBrowserVideoCell.class);
     }

@@ -71,6 +71,7 @@
 		2BA1A848231FF4DB0047CAED /* GDorisLargeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A81B231FF4DB0047CAED /* GDorisLargeImageView.m */; };
 		2BA1A84F231FF7AF0047CAED /* UINavigationController+XCCStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A84D231FF7AF0047CAED /* UINavigationController+XCCStatusBar.m */; };
 		2BA1A852231FF9270047CAED /* GDorisBasePhotoPickerBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A851231FF9270047CAED /* GDorisBasePhotoPickerBrowserController.m */; };
+		2BA1A855232002910047CAED /* GDorisPhotoPickerBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A854232002910047CAED /* GDorisPhotoPickerBrowserCell.m */; };
 		2BBF095A21B80D02006132E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF095921B80D02006132E6 /* AppDelegate.m */; };
 		2BBF096021B80D02006132E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BBF095E21B80D02006132E6 /* Main.storyboard */; };
 		2BBF096221B80D04006132E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BBF096121B80D04006132E6 /* Assets.xcassets */; };
@@ -235,6 +236,8 @@
 		2BA1A84E231FF7AF0047CAED /* UINavigationController+XCCStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+XCCStatusBar.h"; sourceTree = "<group>"; };
 		2BA1A850231FF9270047CAED /* GDorisBasePhotoPickerBrowserController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDorisBasePhotoPickerBrowserController.h; sourceTree = "<group>"; };
 		2BA1A851231FF9270047CAED /* GDorisBasePhotoPickerBrowserController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDorisBasePhotoPickerBrowserController.m; sourceTree = "<group>"; };
+		2BA1A853232002910047CAED /* GDorisPhotoPickerBrowserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoPickerBrowserCell.h; sourceTree = "<group>"; };
+		2BA1A854232002910047CAED /* GDorisPhotoPickerBrowserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoPickerBrowserCell.m; sourceTree = "<group>"; };
 		2BBF095521B80D02006132E6 /* GDorisPhotoKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDorisPhotoKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBF095821B80D02006132E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2BBF095921B80D02006132E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -554,6 +557,8 @@
 				2BA1A81B231FF4DB0047CAED /* GDorisLargeImageView.m */,
 				2BA1A815231FF4DB0047CAED /* GDorisPhotoBrowserAnimationCell.h */,
 				2BA1A819231FF4DB0047CAED /* GDorisPhotoBrowserAnimationCell.m */,
+				2BA1A853232002910047CAED /* GDorisPhotoPickerBrowserCell.h */,
+				2BA1A854232002910047CAED /* GDorisPhotoPickerBrowserCell.m */,
 				2BA1A81A231FF4DB0047CAED /* GDorisPhotoBrowserContentCell.h */,
 				2BA1A816231FF4DB0047CAED /* GDorisPhotoBrowserContentCell.m */,
 				2BA1A812231FF4DB0047CAED /* GDorisPhotoBrowserVideoCell.h */,
@@ -590,8 +595,6 @@
 			children = (
 				2BA1A797231FF4BD0047CAED /* GDorisWXPhotoBrowserController.h */,
 				2BA1A781231FF4BD0047CAED /* GDorisWXPhotoBrowserController.m */,
-				2BA1A787231FF4BD0047CAED /* GDorisWXPhotoEditController.h */,
-				2BA1A778231FF4BD0047CAED /* GDorisWXPhotoEditController.m */,
 				2BA1A796231FF4BD0047CAED /* GDorisWXThumbnailContainer.h */,
 				2BA1A782231FF4BD0047CAED /* GDorisWXThumbnailContainer.m */,
 			);
@@ -601,6 +604,8 @@
 		2BA1A84C231FF6940047CAED /* WXPhotoEidt */ = {
 			isa = PBXGroup;
 			children = (
+				2BA1A787231FF4BD0047CAED /* GDorisWXPhotoEditController.h */,
+				2BA1A778231FF4BD0047CAED /* GDorisWXPhotoEditController.m */,
 				2BA1A77E231FF4BD0047CAED /* GDorisWXEditColorPanel.h */,
 				2BA1A794231FF4BD0047CAED /* GDorisWXEditColorPanel.m */,
 				2BA1A785231FF4BD0047CAED /* GDorisWXEditCropMaskView.h */,
@@ -960,6 +965,7 @@
 				2BA1A827231FF4DB0047CAED /* GDorisPhotoAlbumTableView.m in Sources */,
 				2BA1A82A231FF4DB0047CAED /* GDorisGifPhotoPickerCell.m in Sources */,
 				2BA1A838231FF4DB0047CAED /* GDorisLine.m in Sources */,
+				2BA1A855232002910047CAED /* GDorisPhotoPickerBrowserCell.m in Sources */,
 				2BA1A844231FF4DB0047CAED /* GDorisTiledLayerView.m in Sources */,
 				2BA1A82E231FF4DB0047CAED /* GDorisRunLoopWorker.m in Sources */,
 				2BA1A7AC231FF4BE0047CAED /* GNavItemFactory.m in Sources */,
