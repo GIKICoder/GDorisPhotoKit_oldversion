@@ -17,8 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GDorisPhotoBrowserContentCell : UICollectionViewCell
 
 @property (nonatomic, strong, readonly) UIScrollView  *scrollView;
-@property (nonatomic, weak  ,readonly) YYAnimatedImageView  * contentImageView;
-@property (nonatomic, strong, readonly) id<IGDorisPhotoItem>  photoItem;
+@property (nonatomic, weak  ,readonly) UIImageView  * contentImageView;
+
+@property (nonatomic, strong) id<IGDorisPhotoItem>  photoItem;
+@property (nonatomic, assign) CGSize  scrollSize;
 @property(nonatomic, copy) void (^SingleTapHandler)(__kindof id data);
 @property (nonatomic, assign) BOOL  zoomEnabled;
 
@@ -34,12 +36,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)processSizeWithImage:(UIImage *)image imageContainer:(__kindof UIView *)container;
 
 #pragma mark - Override
-//@required
-- (void)loadLocalImage:(UIImage *)image;
-- (void)loadLocalImageName:(NSString *)imageName;
-- (void)loadThumbImage:(NSURL *)thumbURL;
-- (void)loadPlaceHolderImage:(UIImage *)placeHolder;
-- (void)loadPreviewImage:(NSURL *)thumbURL;
 
 //@optional
 - (__kindof UIView *)containerView;
