@@ -1,4 +1,6 @@
 PODS:
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.1.0)
   - TOCropViewController (2.4.0)
   - YYCache (1.0.4)
   - YYImage (1.0.4):
@@ -9,22 +11,28 @@ PODS:
     - YYImage
 
 DEPENDENCIES:
+  - Masonry
+  - MBProgressHUD (~> 1.1.0)
   - TOCropViewController
   - YYWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Masonry
+    - MBProgressHUD
     - TOCropViewController
     - YYCache
     - YYImage
     - YYWebImage
 
 SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   TOCropViewController: 368d8df3ea43b62c3dc5a61f11b9048274d240bd
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 46016196252d21f2fb6e3d6153cf32e703a9593a
+PODFILE CHECKSUM: 676c836bbc44cb0febf2c95b992006c7a7e6e5bf
 
 COCOAPODS: 1.6.1

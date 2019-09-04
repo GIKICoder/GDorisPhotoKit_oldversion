@@ -7,7 +7,9 @@ target 'GDorisPhotoKitExample' do
 
   pod 'YYWebImage'
   pod 'TOCropViewController'
-
+  pod 'Masonry'
+  pod 'MBProgressHUD', '~> 1.1.0'
+  
   target 'GDorisPhotoKitExampleTests' do
     inherit! :search_paths
     # Pods for testing

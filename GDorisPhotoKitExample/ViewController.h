@@ -1,9 +1,9 @@
 //
 //  ViewController.h
-//  GDorisPhotoKitExample
+//  GDorisPhotoKit
 //
-//  Created by GIKI on 2018/12/5.
-//  Copyright © 2018 GIKI. All rights reserved.
+//  Created by GIKI on 2019/9/3.
+//  Copyright © 2019 GIKI. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -1,11 +1,12 @@
 //
 //  ViewController.m
-//  GDorisPhotoKitExample
+//  GDorisPhotoKit
 //
-//  Created by GIKI on 2018/12/5.
-//  Copyright © 2018 GIKI. All rights reserved.
+//  Created by GIKI on 2019/9/3.
+//  Copyright © 2019 GIKI. All rights reserved.
 //
 
+#import "ViewController.h"
 #import "ViewController.h"
 #import "GDorisWXPhotoPickerController.h"
 
@@ -89,13 +90,13 @@
 {
     NSString *title = self.datas[indexPath.row][@"title"];
     if ([title isEqualToString:@"WXPhotoPicker"]) {
-        GDorisWXPhotoPickerController * wxpicker = [GDorisWXPhotoPickerController wxPhotoPickerControllerDelegate:self];
-        [wxpicker presentWXPhotoPickerController:self];
+        GDorisWXPhotoPickerController * wxpicker = [GDorisWXPhotoPickerController WXPhotoPickerController:nil];
+        [wxpicker presentPhotoPickerController:self];
         return;
     }
-    NSString *cla = self.datas[indexPath.row][@"controller"];
-    Class clazz = NSClassFromString(cla);
-    [self.navigationController pushViewController:[clazz new] animated:YES];
+//    NSString *cla = self.datas[indexPath.row][@"controller"];
+//    Class clazz = NSClassFromString(cla);
+//    [self.navigationController pushViewController:[clazz new] animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,3 +105,4 @@
 }
 
 @end
+
