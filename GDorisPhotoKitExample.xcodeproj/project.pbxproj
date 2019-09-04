@@ -72,6 +72,7 @@
 		2BA1A84F231FF7AF0047CAED /* UINavigationController+XCCStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A84D231FF7AF0047CAED /* UINavigationController+XCCStatusBar.m */; };
 		2BA1A852231FF9270047CAED /* GDorisBasePhotoPickerBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A851231FF9270047CAED /* GDorisBasePhotoPickerBrowserController.m */; };
 		2BA1A855232002910047CAED /* GDorisPhotoPickerBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A854232002910047CAED /* GDorisPhotoPickerBrowserCell.m */; };
+		2BA1A858232007410047CAED /* GDorisPhotoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A857232007410047CAED /* GDorisPhotoItem.m */; };
 		2BBF095A21B80D02006132E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF095921B80D02006132E6 /* AppDelegate.m */; };
 		2BBF096021B80D02006132E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BBF095E21B80D02006132E6 /* Main.storyboard */; };
 		2BBF096221B80D04006132E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BBF096121B80D04006132E6 /* Assets.xcassets */; };
@@ -238,6 +239,8 @@
 		2BA1A851231FF9270047CAED /* GDorisBasePhotoPickerBrowserController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDorisBasePhotoPickerBrowserController.m; sourceTree = "<group>"; };
 		2BA1A853232002910047CAED /* GDorisPhotoPickerBrowserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoPickerBrowserCell.h; sourceTree = "<group>"; };
 		2BA1A854232002910047CAED /* GDorisPhotoPickerBrowserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoPickerBrowserCell.m; sourceTree = "<group>"; };
+		2BA1A856232007410047CAED /* GDorisPhotoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoItem.h; sourceTree = "<group>"; };
+		2BA1A857232007410047CAED /* GDorisPhotoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoItem.m; sourceTree = "<group>"; };
 		2BBF095521B80D02006132E6 /* GDorisPhotoKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDorisPhotoKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBF095821B80D02006132E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2BBF095921B80D02006132E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -573,6 +576,8 @@
 			isa = PBXGroup;
 			children = (
 				2BA1A81D231FF4DB0047CAED /* IGDorisPhotoItem.h */,
+				2BA1A856232007410047CAED /* GDorisPhotoItem.h */,
+				2BA1A857232007410047CAED /* GDorisPhotoItem.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -931,6 +936,7 @@
 				2BA1A842231FF4DB0047CAED /* GDorisCropOverlayView.m in Sources */,
 				2BA1A83C231FF4DB0047CAED /* GDorisPhotoInputView.m in Sources */,
 				2BA1A829231FF4DB0047CAED /* GDorisLivePhotoPickerCell.m in Sources */,
+				2BA1A858232007410047CAED /* GDorisPhotoItem.m in Sources */,
 				2BA1A848231FF4DB0047CAED /* GDorisLargeImageView.m in Sources */,
 				2BA1A82C231FF4DB0047CAED /* GDorisPickerHandler.m in Sources */,
 				2BA1A826231FF4DB0047CAED /* GDorisPhotoPickerBaseCell.m in Sources */,

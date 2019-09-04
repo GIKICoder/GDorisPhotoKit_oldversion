@@ -31,9 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)fulFillImageView:(UIImageView *)imageView;
 
-- (void)fitImageSize:(CGSize)imageSize containerSize:(CGSize)containerSize Completed:(void(^)(CGRect containerFrame, CGSize scrollContentSize))completed;
-
 - (void)processSizeWithImage:(UIImage *)image imageContainer:(__kindof UIView *)container;
+- (void)fitImageSize:(CGSize)imageSize containerSize:(CGSize)containerSize Completed:(void(^)(CGRect containerFrame, CGSize scrollContentSize))completed;
 
 #pragma mark - Override
 

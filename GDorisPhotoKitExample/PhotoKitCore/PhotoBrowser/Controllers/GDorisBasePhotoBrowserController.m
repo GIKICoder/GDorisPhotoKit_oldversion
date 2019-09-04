@@ -13,8 +13,8 @@
 #import "GDorisPhotoBrowserControllerInternal.h"
 #import "GDorisPhotoBrowserVideoCell.h"
 #import "GDorisPhotoPickerBrowserCell.h"
-#define GDorisWidth ([[UIScreen mainScreen] bounds].size.width)
-#define GDorisHeight ([[UIScreen mainScreen] bounds].size.height)
+#define GDorisBrowserWidth ([[UIScreen mainScreen] bounds].size.width)
+#define GDorisBrowserHeight ([[UIScreen mainScreen] bounds].size.height)
 @interface GDorisBasePhotoBrowserController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) NSArray * PhotoDatas;
@@ -51,7 +51,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadUI];
+    [self __loadUI];
     self.view.backgroundColor = [UIColor clearColor];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ReceiveFirstLoadImage:) name:kDorisPhotoZoomImageKey object:nil];
 }
@@ -77,7 +77,7 @@
 
 #pragma mark - load UI
 
-- (void)loadUI
+- (void)__loadUI
 {
     [self.view addSubview:({
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
@@ -93,12 +93,12 @@
         if (@available(iOS 11, *)) {
             _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
-        [_collectionView registerClass:[GDorisPhotoBrowserAnimationCell class] forCellWithReuseIdentifier:@"GDorisPhotoBrowserAnimationCell"];
-        [_collectionView registerClass:[GDorisPhotoBrowserVideoCell class] forCellWithReuseIdentifier:@"GDorisPhotoBrowserVideoCell"];
-        [_collectionView registerClass:[GDorisPhotoPickerBrowserCell class] forCellWithReuseIdentifier:@"GDorisPhotoPickerBrowserCell"];
-        
         _collectionView;
     })];
+    NSArray * cellClass = [self registerCellClass];
+    [cellClass enumerateObjectsUsingBlock:^(Class  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.collectionView registerClass:obj forCellWithReuseIdentifier:NSStringFromClass(obj)];
+    }];
 }
 
 #pragma mark - kDorisPhotoZoomImageKey
@@ -157,7 +157,9 @@
     }
     GDorisPhotoBrowserContentCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:Identifier forIndexPath:indexPath];
     __weak typeof(self) weakSelf = self;
-    [cell configData:object forItemAtIndexPath:indexPath];
+    if ([cell respondsToSelector:@selector(configData:forItemAtIndexPath:)]) {
+        [cell configData:object forItemAtIndexPath:indexPath];
+    }
     cell.SingleTapHandler = ^(__kindof id  _Nonnull data) {
         [weakSelf singleTapContentHandler:data];
     };
@@ -195,7 +197,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(GDorisWidth, GDorisHeight);
+    return CGSizeMake(GDorisBrowserWidth, GDorisBrowserHeight);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
@@ -210,7 +212,7 @@
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    NSInteger index = scrollView.contentOffset.x / GDorisWidth;
+    NSInteger index = scrollView.contentOffset.x / GDorisBrowserWidth;
     [self browserDidEndDeceleratingWithIndex:index];
 }
 
@@ -248,6 +250,13 @@
 {
     NSIndexPath *indexpath = [self.collectionView indexPathsForVisibleItems].firstObject;
     return indexpath;
+}
+
+#pragma mark - Override Method
+
+- (NSArray<Class> *)registerCellClass
+{
+    return @[[GDorisPhotoBrowserAnimationCell class],[GDorisPhotoBrowserVideoCell class],[GDorisPhotoPickerBrowserCell class]];
 }
 
 #pragma mark - GDorisZoomPresentedControllerProtocol

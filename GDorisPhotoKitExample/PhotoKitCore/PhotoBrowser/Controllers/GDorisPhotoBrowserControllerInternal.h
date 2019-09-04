@@ -20,6 +20,8 @@
 - (void)browserDidEndDisplayingCell:(__kindof UICollectionViewCell*)cell forItemAtIndexPath:(NSIndexPath *)indexPath;
 - (void)singleTapContentHandler:(id)data;
 
+- (NSArray<Class> *)registerCellClass;
+
 /**
  图片浏览器滚动位置
  用于显示当前图片的index

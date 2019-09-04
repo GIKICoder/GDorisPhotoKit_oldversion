@@ -12,6 +12,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol IGDorisPhotoItem <NSObject>
 
+@required
+@property (nonatomic, strong) Class cellClass;
+@property (nonatomic, assign) NSInteger  itemIndex;
+
+@optional
+
+@property (nonatomic, strong) UIImage * dorisImage;
+@property (nonatomic, strong) NSURL * dorisLocalUrl;
+@property (nonatomic, strong) NSString * dorisImageName;
+@property (nonatomic, strong) NSArray<NSString *> * dorisUrlStrings;
+@property (nonatomic, strong) NSArray<NSURL *> * dorisUrls;
+@property (nonatomic, strong) XCAsset * xc_Asset;
+@property (nonatomic, strong) __kindof id context;
+
+
 @optional
 - (NSString *)photoUrl;
 - (NSString *)placeholder;
@@ -23,8 +38,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isVideo;
 
 @property (nonatomic, strong) UIImage * thumbImage;
-@property (nonatomic, strong) __kindof id context;
-@property (nonatomic, assign) NSInteger  itemIndex;
 - (Class)customCellClass;
 
 @end
