@@ -63,6 +63,11 @@
     [super viewDidLayoutSubviews];
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 - (void)dealloc
 {
     

@@ -7,9 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "ViewController.h"
 #import "GDorisWXPhotoPickerController.h"
-
+#import "UINavigationController+XCCStatusBar.h"
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSArray * datas;
 @property (nonatomic, strong) UITableView * tableView;
@@ -22,6 +21,9 @@
     self.datas = @[
                    @{@"title":@"WXPhotoPicker",
                      @"controller":@"GDorisDraw2ViewController"
+                     },
+                   @{@"title":@"DorisPhotoPicker",
+                     @"controller":@"GDorisDraw2ViewController"
                      }
                    ];
     [self.view addSubview:({
@@ -32,6 +34,12 @@
     })];
     [self CGDTest];
 }
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+
 
 - (void)CGDTest
 {

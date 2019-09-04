@@ -69,6 +69,7 @@
 		2BA1A846231FF4DB0047CAED /* GDorisPhotoBrowserVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A817231FF4DB0047CAED /* GDorisPhotoBrowserVideoCell.m */; };
 		2BA1A847231FF4DB0047CAED /* GDorisPhotoBrowserAnimationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A819231FF4DB0047CAED /* GDorisPhotoBrowserAnimationCell.m */; };
 		2BA1A848231FF4DB0047CAED /* GDorisLargeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A81B231FF4DB0047CAED /* GDorisLargeImageView.m */; };
+		2BA1A84F231FF7AF0047CAED /* UINavigationController+XCCStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A84D231FF7AF0047CAED /* UINavigationController+XCCStatusBar.m */; };
 		2BBF095A21B80D02006132E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF095921B80D02006132E6 /* AppDelegate.m */; };
 		2BBF096021B80D02006132E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BBF095E21B80D02006132E6 /* Main.storyboard */; };
 		2BBF096221B80D04006132E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BBF096121B80D04006132E6 /* Assets.xcassets */; };
@@ -229,6 +230,8 @@
 		2BA1A81A231FF4DB0047CAED /* GDorisPhotoBrowserContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoBrowserContentCell.h; sourceTree = "<group>"; };
 		2BA1A81B231FF4DB0047CAED /* GDorisLargeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisLargeImageView.m; sourceTree = "<group>"; };
 		2BA1A81D231FF4DB0047CAED /* IGDorisPhotoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGDorisPhotoItem.h; sourceTree = "<group>"; };
+		2BA1A84D231FF7AF0047CAED /* UINavigationController+XCCStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+XCCStatusBar.m"; sourceTree = "<group>"; };
+		2BA1A84E231FF7AF0047CAED /* UINavigationController+XCCStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+XCCStatusBar.h"; sourceTree = "<group>"; };
 		2BBF095521B80D02006132E6 /* GDorisPhotoKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDorisPhotoKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBF095821B80D02006132E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2BBF095921B80D02006132E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -634,13 +637,15 @@
 		2BBF095721B80D02006132E6 /* GDorisPhotoKitExample */ = {
 			isa = PBXGroup;
 			children = (
-				2BA1A7B2231FF4DB0047CAED /* PhotoKitCore */,
 				2BA1A775231FF4BD0047CAED /* GDorisPhotoPicker */,
 				2BA1A777231FF4BD0047CAED /* GDorisWXPhotoPicker */,
+				2BA1A7B2231FF4DB0047CAED /* PhotoKitCore */,
 				2BA1A774231FF4BD0047CAED /* ViewController.h */,
 				2BA1A776231FF4BD0047CAED /* ViewController.m */,
 				2BBF095821B80D02006132E6 /* AppDelegate.h */,
 				2BBF095921B80D02006132E6 /* AppDelegate.m */,
+				2BA1A84E231FF7AF0047CAED /* UINavigationController+XCCStatusBar.h */,
+				2BA1A84D231FF7AF0047CAED /* UINavigationController+XCCStatusBar.m */,
 				2BBF095E21B80D02006132E6 /* Main.storyboard */,
 				2BBF096121B80D04006132E6 /* Assets.xcassets */,
 				2BBF096321B80D04006132E6 /* LaunchScreen.storyboard */,
@@ -943,6 +948,7 @@
 				2BA1A823231FF4DB0047CAED /* GDorisBasePhotoPickerController.m in Sources */,
 				2BA1A845231FF4DB0047CAED /* GDorisPhotoBrowserContentCell.m in Sources */,
 				2BA1A7A7231FF4BE0047CAED /* GDorisWXPhotoPickerController.m in Sources */,
+				2BA1A84F231FF7AF0047CAED /* UINavigationController+XCCStatusBar.m in Sources */,
 				2BA1A7A2231FF4BE0047CAED /* GDorisWXEditCropMaskView.m in Sources */,
 				2BA1A824231FF4DB0047CAED /* GDorisPhotoPickerCameraCell.m in Sources */,
 				2BA1A827231FF4DB0047CAED /* GDorisPhotoAlbumTableView.m in Sources */,

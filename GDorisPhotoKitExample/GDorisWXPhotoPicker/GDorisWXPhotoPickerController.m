@@ -81,9 +81,9 @@
     self.collectionView.frame = CGRectMake(0, G_NAV_HEIGHT, self.view.bounds.size.width, [UIScreen mainScreen].bounds.size.height-G_NAV_HEIGHT-self.wxToolbar.frame.size.height);
 }
 
--(void)viewSafeAreaInsetsDidChange
+- (UIStatusBarStyle)preferredStatusBarStyle
 {
-     NSLog(@"%@",NSStringFromUIEdgeInsets(self.view.safeAreaInsets));
+    return UIStatusBarStyleLightContent;
 }
 
 #pragma mark - loadDatas
@@ -186,15 +186,16 @@
     CGFloat maxCount = [self getAssetMaxCount:assetModel.asset];
     BOOL canSelect = [super override_canSelectAsset:assetModel];
     if (!canSelect) {
+         UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
         if (self.onlySelectOneMediaType && self.onlyEnableSelectAssetType != assetModel.asset.assetType) {
-            [[self class] showToastHUD:[UIApplication sharedApplication].keyWindow info:@"不能同时选择照片和视频"];
+            [[self class] showToastHUD:window info:@"不能同时选择照片和视频"];
         } else if (self.selectItems.count >= maxCount) {
             NSString * name = @"张照片";
             if (assetModel.asset.assetType == XCAssetTypeVideo) {
                 name = @"个视频";
             }
             NSString * msg = [NSString stringWithFormat:@"最多只能选择%ld%@",(long)maxCount,name];
-            [[self class] showToastHUD:[UIApplication sharedApplication].keyWindow info:msg];
+            [[self class] showToastHUD:window info:msg];
         }
     }
     return canSelect;
