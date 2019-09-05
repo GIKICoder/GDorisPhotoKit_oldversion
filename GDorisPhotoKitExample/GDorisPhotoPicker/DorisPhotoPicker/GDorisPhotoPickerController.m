@@ -403,32 +403,32 @@
     if (self.selectItems.count <= 0) {
         return;
     }
-//    XCCPhotoPickerBrowserController * browser = [XCCPhotoPickerBrowserController photoBrowser:self.selectItems.copy index:0];
-//    browser.delegate = self;
-//    browser.functionTitle = self.functionTitle;
-//    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:browser];
-//    self.transition = [GDorisPhotoZoomAnimatedTransition zoomAnimatedWithPresenting:self presented:browser];
-//    nav.transitioningDelegate = self.transition;
-//    nav.modalPresentationStyle = UIModalPresentationCustom;
-//    nav.modalPresentationCapturesStatusBarAppearance = YES;
-//    [self presentViewController:nav animated:YES completion:^{
-//
-//    }];
+    GDorisPhotoPickerBrowserController * browser = [GDorisPhotoPickerBrowserController photoBrowser:self.selectItems.copy index:0];
+    browser.delegate = self;
+    browser.functionTitle = self.functionTitle;
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:browser];
+    self.transition = [GDorisPhotoZoomAnimatedTransition zoomAnimatedWithPresenting:self presented:browser];
+    nav.transitioningDelegate = self.transition;
+    nav.modalPresentationStyle = UIModalPresentationCustom;
+    nav.modalPresentationCapturesStatusBarAppearance = YES;
+    [self presentViewController:nav animated:YES completion:^{
+
+    }];
 }
 
 - (void)previewPhotoBrowserAction:(NSInteger)index
 {
-//    XCCPhotoPickerBrowserController * browser = [XCCPhotoPickerBrowserController photoBrowser:self.photoAssets index:index];
-//    browser.delegate = self;
-//    browser.functionTitle = self.functionTitle;
-//    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:browser];
-//    self.transition = [GDorisPhotoZoomAnimatedTransition zoomAnimatedWithPresenting:self presented:browser];
-//    nav.transitioningDelegate = self.transition;
-//    nav.modalPresentationStyle = UIModalPresentationCustom;
-//    nav.modalPresentationCapturesStatusBarAppearance = YES;
-//    [self presentViewController:nav animated:YES completion:^{
-//        
-//    }];
+    GDorisPhotoPickerBrowserController * browser = [GDorisPhotoPickerBrowserController photoBrowser:self.photoAssets index:index];
+    browser.delegate = self;
+    browser.functionTitle = self.functionTitle;
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:browser];
+    self.transition = [GDorisPhotoZoomAnimatedTransition zoomAnimatedWithPresenting:self presented:browser];
+    nav.transitioningDelegate = self.transition;
+    nav.modalPresentationStyle = UIModalPresentationCustom;
+    nav.modalPresentationCapturesStatusBarAppearance = YES;
+    [self presentViewController:nav animated:YES completion:^{
+        
+    }];
 }
 
 - (void)titleAction:(UIButton *)button

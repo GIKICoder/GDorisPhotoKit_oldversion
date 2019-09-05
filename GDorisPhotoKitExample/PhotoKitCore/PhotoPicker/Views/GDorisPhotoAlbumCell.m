@@ -26,7 +26,7 @@
         view.backgroundColor = [GDorisPhotoHelper colorWithHex:@"f0fcff"];
         [self.contentView addSubview:view];
         self.backView = view;
-        
+        self.backView.hidden = YES;
         [self.contentView addSubview:({
             _photoView = [UIImageView new];
             _photoView;

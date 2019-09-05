@@ -33,6 +33,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.navigationController.navigationBarHidden = YES;
+    [self.navigationController.navigationBar removeFromSuperview];
     [self loadNavigationBar];
     [self loadBottomContainer];
 }

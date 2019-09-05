@@ -149,7 +149,7 @@
    __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         __block NSMutableArray * arrayM = [NSMutableArray array];
-        [[XCAssetsManager sharedInstance] enumerateAllAlbumsWithAlbumContentType:weakSelf.configuration.albumType showEmptyAlbum:weakSelf.configuration.emptyAlbumEnabled showSmartAlbumIfSupported:weakSelf.configuration.samrtAlbumEnabled usingBlock:^(XCAssetsGroup * _Nonnull resultAssetsGroup) {
+        [[XCAssetsManager sharedInstance]  enumerateAllAlbumsWithAlbumContentType:weakSelf.configuration.albumType showEmptyAlbum:weakSelf.configuration.emptyAlbumEnabled showSmartAlbumIfSupported:weakSelf.configuration.samrtAlbumEnabled usingBlock:^(XCAssetsGroup * _Nonnull resultAssetsGroup) {
             if (resultAssetsGroup) {
                 [arrayM addObject:resultAssetsGroup];
             }
