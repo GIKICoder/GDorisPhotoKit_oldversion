@@ -24,7 +24,7 @@
     config.samrtAlbumEnabled = YES;
     config.isReveres = YES;
     config.selectAnimated = YES;
-    config.selectCountEnabled = NO;
+    config.selectCountEnabled = YES;
     config.pickerPadding = 4;
     config.showCamera = YES;
     config.gestureSelectEnabled = NO;

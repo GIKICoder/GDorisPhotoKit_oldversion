@@ -189,6 +189,8 @@
     self.titleButton = titleButton;
     GNavigationItem * centerItem = [GNavItemFactory createCustomView:titleButton];
     [self.navigationBar setCenterItem:centerItem];
+    GNavigationItem * back = [GNavItemFactory createImageButton:[UIImage imageNamed:@"Fire_btn_cancel_black"] highlightImage:[UIImage imageNamed:@"Fire_btn_cancel_black"] target:self selctor:@selector(cancel)];
+    self.navigationBar.leftNavigationItem = back;
 }
 
 - (void)setupBottomToolbar
@@ -372,6 +374,18 @@
         if (self.delegate && [self.delegate respondsToSelector:@selector(dorisPhotoPickerDidCancel:)]) {
             [self.delegate dorisPhotoPickerDidCancel:self];
         }
+        [self dismiss];
+    }
+}
+
+- (void)dismiss
+{
+    if ([self.navigationController.viewControllers count] > 1){
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
     }
 }
 

@@ -22,6 +22,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         [self addSubview:({
             _container = [UIView new];
             _container;

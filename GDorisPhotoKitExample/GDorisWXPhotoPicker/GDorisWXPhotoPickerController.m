@@ -34,6 +34,7 @@
         configuration = [GDorisPhotoPickerConfiguration defaultConfiguration];
     }
     configuration.isReveres = NO;
+    configuration.selectCountEnabled = NO;
     GDorisWXPhotoPickerController *vc = [[GDorisWXPhotoPickerController alloc] initWithConfiguration:configuration];
     return vc;
 }
@@ -244,7 +245,7 @@
     }
     self.navigationBar.titleColor = UIColor.whiteColor;
     self.navigationBar.titleFont = [UIFont boldSystemFontOfSize:18];
-    GNavigationItem * back = [GNavItemFactory createImageButton:[UIImage imageNamed:@"Fire_btn_back_white"] highlightImage:[UIImage imageNamed:@"Fire_btn_back_white"] target:self selctor:@selector(back)];
+    GNavigationItem * back = [GNavItemFactory createImageButton:[UIImage imageNamed:@"GDoris_picker_back_white"] highlightImage:[UIImage imageNamed:@"GDoris_picker_back_white"] target:self selctor:@selector(back)];
     self.navigationBar.leftNavigationItem = back;
     GNavigationItem * cancel = [GNavItemFactory createTitleButton:@"取消" titleColor:UIColor.whiteColor highlightColor:UIColor.lightGrayColor target:self selctor:@selector(cancel)];
     self.navigationBar.rightNavigationItem = cancel;

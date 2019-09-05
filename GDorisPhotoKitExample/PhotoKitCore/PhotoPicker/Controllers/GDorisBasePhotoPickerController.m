@@ -108,6 +108,7 @@ typedef NS_ENUM(NSUInteger, GRecognizerState) {
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[UICollectionViewFlowLayout new]];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
+        _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.backgroundColor = [UIColor whiteColor];
         [_collectionView registerClass:[GDorisPhotoPickerBaseCell class] forCellWithReuseIdentifier:NSStringFromClass([GDorisPhotoPickerBaseCell class])];
         [_collectionView registerClass:[GDorisLivePhotoPickerCell class] forCellWithReuseIdentifier:NSStringFromClass([GDorisLivePhotoPickerCell class])];

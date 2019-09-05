@@ -70,17 +70,13 @@
 - (void)setCountFont:(UIFont *)countFont
 {
     _countFont = countFont;
-    if (_selectType == GDorisPickerSelectCount) {
-        self.numberLabel.font = countFont;
-    }
+    self.numberLabel.font = countFont;
 }
 
 - (void)setCountColor:(UIColor *)countColor
 {
     _countColor = countColor;
-    if (_selectType == GDorisPickerSelectCount) {
-        self.numberLabel.textColor = countColor;
-    }
+    self.numberLabel.textColor = countColor;
 }
 
 - (void)setCountBackColor:(UIColor *)countBackColor
@@ -98,8 +94,8 @@
         _iconView.backgroundColor = self.countBackColor;
         [self addSubview:_iconView];
         _numberLabel = [UILabel new];
-        _numberLabel.font = self.countFont;
-        _numberLabel.textColor = self.countBackColor;
+        _numberLabel.font = self.countFont?:[UIFont systemFontOfSize:12];
+        _numberLabel.textColor = self.countColor ?: UIColor.whiteColor;
         _numberLabel.textAlignment = NSTextAlignmentCenter;
         [_iconView addSubview:_numberLabel];
     }
