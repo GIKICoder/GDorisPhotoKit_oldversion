@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "GDorisWXPhotoPickerController.h"
 #import "UINavigationController+XCCStatusBar.h"
+#import "GDorisPhotoPickerController.h"
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSArray * datas;
 @property (nonatomic, strong) UITableView * tableView;
@@ -23,7 +24,7 @@
                      @"controller":@"GDorisDraw2ViewController"
                      },
                    @{@"title":@"DorisPhotoPicker",
-                     @"controller":@"GDorisDraw2ViewController"
+                     @"controller":@"GDorisPhotoPickerController"
                      }
                    ];
     [self.view addSubview:({
@@ -100,11 +101,14 @@
     if ([title isEqualToString:@"WXPhotoPicker"]) {
         GDorisWXPhotoPickerController * wxpicker = [GDorisWXPhotoPickerController WXPhotoPickerController:nil];
         [wxpicker presentPhotoPickerController:self];
-        return;
+        
+    } else if ([title isEqualToString:@"DorisPhotoPicker"]) {
+        GDorisPhotoPickerController * picker = [[GDorisPhotoPickerController alloc] initWithConfiguration:nil];
+        UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:picker];
+        nav.modalPresentationStyle = UIModalPresentationCustom;
+        nav.modalPresentationCapturesStatusBarAppearance = YES;
+        [self.navigationController presentViewController:nav animated:YES completion:nil];
     }
-//    NSString *cla = self.datas[indexPath.row][@"controller"];
-//    Class clazz = NSClassFromString(cla);
-//    [self.navigationController pushViewController:[clazz new] animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -168,7 +168,8 @@ typedef NS_ENUM(NSUInteger, GRecognizerState) {
     __block GDorisAssetItem * preselectItem = nil;
     __block NSInteger blockIndex = 0;
     NSInteger loadCount = self.configuration.FirstNeedsLoadCount;
-    [collection enumerateAssetsWithOptions:XCAlbumSortTypeReverse usingBlock:^(XCAsset * _Nonnull resultAsset) {
+    XCAlbumSortType sortType = self.configuration.isReveres ? XCAlbumSortTypeReverse : XCAlbumSortTypePositive;
+    [collection enumerateAssetsWithOptions:sortType usingBlock:^(XCAsset * _Nonnull resultAsset) {
         blockIndex ++;
         if (blockIndex == loadCount && loadCount > 0) {
             dispatch_async(dispatch_get_main_queue(), ^{

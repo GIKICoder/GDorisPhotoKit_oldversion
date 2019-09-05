@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B4B144D2320F8070017ADB1 /* GDoirsPhotoPickerToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4B144C2320F8070017ADB1 /* GDoirsPhotoPickerToolbar.m */; };
+		2B4B14502320F9A20017ADB1 /* GDorisIMGButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4B144F2320F9A20017ADB1 /* GDorisIMGButton.m */; };
+		2B4B14532320F9B70017ADB1 /* GAdjustButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4B14522320F9B70017ADB1 /* GAdjustButton.m */; };
 		2BA1A79F231FF4BE0047CAED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A776231FF4BD0047CAED /* ViewController.m */; };
 		2BA1A7A0231FF4BE0047CAED /* GDorisWXPhotoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A778231FF4BD0047CAED /* GDorisWXPhotoEditController.m */; };
 		2BA1A7A1231FF4BE0047CAED /* GDorisWXEditHitTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1A77A231FF4BD0047CAED /* GDorisWXEditHitTestView.m */; };
@@ -106,6 +109,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B4B144B2320F8070017ADB1 /* GDoirsPhotoPickerToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDoirsPhotoPickerToolbar.h; sourceTree = "<group>"; };
+		2B4B144C2320F8070017ADB1 /* GDoirsPhotoPickerToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDoirsPhotoPickerToolbar.m; sourceTree = "<group>"; };
+		2B4B144E2320F9A20017ADB1 /* GDorisIMGButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDorisIMGButton.h; sourceTree = "<group>"; };
+		2B4B144F2320F9A20017ADB1 /* GDorisIMGButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDorisIMGButton.m; sourceTree = "<group>"; };
+		2B4B14512320F9B70017ADB1 /* GAdjustButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAdjustButton.h; sourceTree = "<group>"; };
+		2B4B14522320F9B70017ADB1 /* GAdjustButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAdjustButton.m; sourceTree = "<group>"; };
 		2BA1A774231FF4BD0047CAED /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2BA1A776231FF4BD0047CAED /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2BA1A778231FF4BD0047CAED /* GDorisWXPhotoEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisWXPhotoEditController.m; sourceTree = "<group>"; };
@@ -353,10 +362,14 @@
 		2BA1A799231FF4BD0047CAED /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				2BA1A79A231FF4BD0047CAED /* UIView+GDoris.h */,
 				2BA1A79B231FF4BD0047CAED /* UIButton+GDoris.h */,
 				2BA1A79C231FF4BD0047CAED /* UIButton+GDoris.m */,
+				2BA1A79A231FF4BD0047CAED /* UIView+GDoris.h */,
 				2BA1A79D231FF4BD0047CAED /* UIView+GDoris.m */,
+				2B4B144E2320F9A20017ADB1 /* GDorisIMGButton.h */,
+				2B4B144F2320F9A20017ADB1 /* GDorisIMGButton.m */,
+				2B4B14512320F9B70017ADB1 /* GAdjustButton.h */,
+				2B4B14522320F9B70017ADB1 /* GAdjustButton.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -643,6 +656,8 @@
 			children = (
 				2BA1A86323200D140047CAED /* GDorisPhotoPickerController.h */,
 				2BA1A86423200D140047CAED /* GDorisPhotoPickerController.m */,
+				2B4B144B2320F8070017ADB1 /* GDoirsPhotoPickerToolbar.h */,
+				2B4B144C2320F8070017ADB1 /* GDoirsPhotoPickerToolbar.m */,
 			);
 			path = DorisPhotoPicker;
 			sourceTree = "<group>";
@@ -992,6 +1007,7 @@
 				2BA1A7A3231FF4BE0047CAED /* GDorisWXAlbumViewController.m in Sources */,
 				2BA1A83A231FF4DB0047CAED /* UIImage+GDorisDraw.m in Sources */,
 				2BA1A83E231FF4DB0047CAED /* GDorisDragDropView.m in Sources */,
+				2B4B14532320F9B70017ADB1 /* GAdjustButton.m in Sources */,
 				2BA1A83D231FF4DB0047CAED /* GDorisInputViewController.m in Sources */,
 				2BA1A836231FF4DB0047CAED /* GDorisVertex.m in Sources */,
 				2BA1A7A6231FF4BE0047CAED /* GDorisWXThumbnailContainer.m in Sources */,
@@ -1002,6 +1018,7 @@
 				2BA1A82D231FF4DB0047CAED /* UICollectionViewCell+GDorisWorker.m in Sources */,
 				2BA1A86523200D140047CAED /* GDorisPhotoPickerController.m in Sources */,
 				2BA1A7A4231FF4BE0047CAED /* GDorisWXToolbar.m in Sources */,
+				2B4B144D2320F8070017ADB1 /* GDoirsPhotoPickerToolbar.m in Sources */,
 				2BA1A86223200CF50047CAED /* GDorisPhotoPickerBrowserController.m in Sources */,
 				2BA1A820231FF4DB0047CAED /* GDorisPhotoZoomAnimatedTransition.m in Sources */,
 				2BA1A823231FF4DB0047CAED /* GDorisBasePhotoPickerController.m in Sources */,
@@ -1010,6 +1027,7 @@
 				2BA1A84F231FF7AF0047CAED /* UINavigationController+XCCStatusBar.m in Sources */,
 				2BA1A7A2231FF4BE0047CAED /* GDorisWXEditCropMaskView.m in Sources */,
 				2BA1A824231FF4DB0047CAED /* GDorisPhotoPickerCameraCell.m in Sources */,
+				2B4B14502320F9A20017ADB1 /* GDorisIMGButton.m in Sources */,
 				2BA1A827231FF4DB0047CAED /* GDorisPhotoAlbumTableView.m in Sources */,
 				2BA1A82A231FF4DB0047CAED /* GDorisGifPhotoPickerCell.m in Sources */,
 				2BA1A838231FF4DB0047CAED /* GDorisLine.m in Sources */,
