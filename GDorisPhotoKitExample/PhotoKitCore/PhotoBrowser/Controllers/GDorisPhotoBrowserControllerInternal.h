@@ -22,6 +22,8 @@
 
 - (NSArray<Class> *)registerCellClass;
 
+- (NSString *)obtainCellClass:(__kindof id)photoItem;
+
 /**
  图片浏览器滚动位置
  用于显示当前图片的index

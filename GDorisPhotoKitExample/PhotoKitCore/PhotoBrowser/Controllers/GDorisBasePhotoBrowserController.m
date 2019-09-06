@@ -150,7 +150,7 @@
         return nil;
     }
     id<IGDorisPhotoItem> object = [self.PhotoDatas objectAtIndex:indexPath.row];
-
+    
     NSString * Identifier = NSStringFromClass(GDorisPhotoPickerBrowserCell.class);
     if (object && [object respondsToSelector:@selector(isVideo)] && object.isVideo) {
         Identifier = NSStringFromClass(GDorisPhotoBrowserVideoCell.class);
@@ -257,6 +257,11 @@
 - (NSArray<Class> *)registerCellClass
 {
     return @[[GDorisPhotoBrowserAnimationCell class],[GDorisPhotoBrowserVideoCell class],[GDorisPhotoPickerBrowserCell class]];
+}
+
+- (NSString *)obtainCellClass:(__kindof id)photoItem
+{
+    return NSStringFromClass(GDorisPhotoBrowserAnimationCell.class);
 }
 
 #pragma mark - GDorisZoomPresentedControllerProtocol

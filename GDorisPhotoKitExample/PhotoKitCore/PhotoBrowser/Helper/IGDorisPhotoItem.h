@@ -17,8 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger  itemIndex;
 
 @optional
-
+/// 如果有DorisImage 优先展示
 @property (nonatomic, strong) UIImage * dorisImage;
+
 @property (nonatomic, strong) NSURL * dorisLocalUrl;
 @property (nonatomic, strong) NSString * dorisImageName;
 @property (nonatomic, strong) NSArray<NSString *> * dorisUrlStrings;
