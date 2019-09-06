@@ -1,21 +1,21 @@
 //
-//  GDorisLargeImageView.m
+//  GDorisLargeImageView_old.m
 //  GDoris
 //
 //  Created by GIKI on 2018/9/2.
 //  Copyright © 2018年 GIKI. All rights reserved.
 //
 
-#import "GDorisLargeImageView.h"
+#import "GDorisLargeImageView_old.h"
 
-@interface GDorisLargeImageView ()<UIScrollViewDelegate>
+@interface GDorisLargeImageView_old ()<UIScrollViewDelegate>
 @property (nonatomic, strong) GDorisTiledLayerView * frontTiledLayerView;
 @property (nonatomic, strong) UIImageView * backgroundImageView;
 @property (nonatomic, assign) float  minimumScale;
 @property (nonatomic, assign) CGFloat  imageScale;
 @end
 
-@implementation GDorisLargeImageView
+@implementation GDorisLargeImageView_old
 
 - (instancetype)initWithFrame:(CGRect)frame image:(UIImage *)image
 {

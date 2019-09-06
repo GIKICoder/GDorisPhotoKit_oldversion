@@ -10,6 +10,7 @@
 #import "GDorisWXPhotoPickerController.h"
 #import "UINavigationController+XCCStatusBar.h"
 #import "GDorisPhotoPickerController.h"
+#import "GDorisLargeImageController.h"
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSArray * datas;
 @property (nonatomic, strong) UITableView * tableView;
@@ -20,12 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.datas = @[
-                   @{@"title":@"WXPhotoPicker",
-                     @"controller":@"GDorisDraw2ViewController"
-                     },
-                   @{@"title":@"DorisPhotoPicker",
-                     @"controller":@"GDorisPhotoPickerController"
-                     }
+                   @{@"title":@"WXPhotoPicker"},
+                   @{@"title":@"DorisPhotoPicker"},
+                   @{@"title":@"LargeImage"}
                    ];
     [self.view addSubview:({
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
@@ -108,6 +106,9 @@
         nav.modalPresentationStyle = UIModalPresentationCustom;
         nav.modalPresentationCapturesStatusBarAppearance = YES;
         [self.navigationController presentViewController:nav animated:YES completion:nil];
+    } else if ([title isEqualToString:@"LargeImage"]) {
+        GDorisLargeImageController * vc = [GDorisLargeImageController new];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
