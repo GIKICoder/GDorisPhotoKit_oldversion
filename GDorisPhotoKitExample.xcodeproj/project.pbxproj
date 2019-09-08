@@ -98,6 +98,7 @@
 		2BD84B7723225CE60016DF2E /* GDorisLargeImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD84B7623225CE60016DF2E /* GDorisLargeImageController.m */; };
 		2BD84B8A2322A7DD0016DF2E /* GDorisLargeTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD84B892322A7DD0016DF2E /* GDorisLargeTiledView.m */; };
 		2BD84B8D2322A9FB0016DF2E /* GDorisLargeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD84B8C2322A9FB0016DF2E /* GDorisLargeImageView.m */; };
+		2BD84B91232406B70016DF2E /* GDorisTiledImageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD84B90232406B70016DF2E /* GDorisTiledImageBuilder.m */; };
 		91EBAB3F0367EDD63A76D5A6 /* libPods-GDorisPhotoKitExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE2CEE6CA1E1F98B89D1B3A /* libPods-GDorisPhotoKitExampleTests.a */; };
 		D6E4FC791A54F7B1D03A4DC0 /* libPods-GDorisPhotoKitExampleUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7DD12A61514F5B578C9952 /* libPods-GDorisPhotoKitExampleUITests.a */; };
 		EA913644A0F9E2EBE4FAC7AE /* libPods-GDorisPhotoKitExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA56D59D491AFDFDC83295A4 /* libPods-GDorisPhotoKitExample.a */; };
@@ -308,6 +309,8 @@
 		2BD84B8B2322A9FB0016DF2E /* GDorisLargeImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDorisLargeImageView.h; sourceTree = "<group>"; };
 		2BD84B8C2322A9FB0016DF2E /* GDorisLargeImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDorisLargeImageView.m; sourceTree = "<group>"; };
 		2BD84B8E2322B0640016DF2E /* PhotoScrollerCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoScrollerCommon.h; sourceTree = "<group>"; };
+		2BD84B8F232406B70016DF2E /* GDorisTiledImageBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDorisTiledImageBuilder.h; sourceTree = "<group>"; };
+		2BD84B90232406B70016DF2E /* GDorisTiledImageBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDorisTiledImageBuilder.m; sourceTree = "<group>"; };
 		2D7DD12A61514F5B578C9952 /* libPods-GDorisPhotoKitExampleUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GDorisPhotoKitExampleUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE2CEE6CA1E1F98B89D1B3A /* libPods-GDorisPhotoKitExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GDorisPhotoKitExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6215278A617919C3B9E7A6 /* Pods-GDorisPhotoKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDorisPhotoKitExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-GDorisPhotoKitExample/Pods-GDorisPhotoKitExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -827,6 +830,8 @@
 				2BD84B8C2322A9FB0016DF2E /* GDorisLargeImageView.m */,
 				2BD84B882322A7DD0016DF2E /* GDorisLargeTiledView.h */,
 				2BD84B892322A7DD0016DF2E /* GDorisLargeTiledView.m */,
+				2BD84B8F232406B70016DF2E /* GDorisTiledImageBuilder.h */,
+				2BD84B90232406B70016DF2E /* GDorisTiledImageBuilder.m */,
 				2BD84B46232258BF0016DF2E /* TiledImageBuilder-Private.h */,
 				2BD84B39232258BF0016DF2E /* TiledImageBuilder.h */,
 				2BD84B44232258BF0016DF2E /* TiledImageBuilder.m */,
@@ -1139,6 +1144,7 @@
 				2BA1A7AD231FF4BE0047CAED /* GNavigationItem.m in Sources */,
 				2BD84B7723225CE60016DF2E /* GDorisLargeImageController.m in Sources */,
 				2BA1A832231FF4DB0047CAED /* GDorisPhotoHelper.m in Sources */,
+				2BD84B91232406B70016DF2E /* GDorisTiledImageBuilder.m in Sources */,
 				2BA1A841231FF4DB0047CAED /* GDorisCropScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
