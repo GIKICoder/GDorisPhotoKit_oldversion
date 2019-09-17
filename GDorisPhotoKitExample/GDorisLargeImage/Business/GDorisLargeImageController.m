@@ -39,14 +39,14 @@
     dispatch_group_t group = dispatch_group_create();
     dispatch_queue_t que = dispatch_queue_create("com.dfh.PhotoScroller", DISPATCH_QUEUE_SERIAL);
     NSUInteger multiCore = [[NSProcessInfo processInfo] processorCount] - 1;
-    ///Space6
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"large_leaves_70mp" ofType:@"jpg"];
+    ///large_leaves_70mp
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Space6" ofType:@"jpg"];
     [self.tileBuilders addObject:@""];
     // Normal Case
     // thread if we have multiple cores
     dispatch_group_async(group, multiCore ? dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) : que, ^
                          {
-                             GDorisTiledImageBuilder *tb = [[GDorisTiledImageBuilder alloc] initWithImagePath:path withDecode:libjpegTurboDecoder size:CGSizeMake(320, 320) orientation:0];
+                             GDorisTiledImageBuilder *tb = [[GDorisTiledImageBuilder alloc] initWithImagePath:path withDecode:1 size:CGSizeMake(320, 320) orientation:0];
                              dispatch_group_async(group, que, ^{ [self.tileBuilders replaceObjectAtIndex:0 withObject:tb]; self.milliSeconds += tb.milliSeconds; });
                          } );
     uint32_t count = 1;

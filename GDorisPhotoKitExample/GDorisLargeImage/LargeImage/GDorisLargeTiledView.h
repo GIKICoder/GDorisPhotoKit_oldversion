@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TiledImageBuilder.h"
+#import "GDorisTiledImageBuilder.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GDorisLargeTiledView : UIView
 @property (nonatomic, assign) BOOL annotates;
 @property (nonatomic, strong, readonly) UIImage * image;
 
-- (instancetype)initWithImageBuilder:(TiledImageBuilder *)imageBuilder;
+- (instancetype)initWithImageBuilder:(GDorisTiledImageBuilder *)imageBuilder;
 - (CGSize)imageSize;
 
 @end

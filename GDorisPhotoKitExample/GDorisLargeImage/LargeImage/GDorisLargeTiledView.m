@@ -21,7 +21,7 @@
 @end
 
 @interface GDorisLargeTiledView ()
-@property (nonatomic, strong) TiledImageBuilder * builder;
+@property (nonatomic, strong) GDorisTiledImageBuilder * builder;
 @end
 
 @implementation GDorisLargeTiledView
@@ -31,7 +31,7 @@
     return [GLargeTiledLayer class];
 }
 
-- (instancetype)initWithImageBuilder:(TiledImageBuilder *)imageBuilder
+- (instancetype)initWithImageBuilder:(GDorisTiledImageBuilder *)imageBuilder
 {
     CGRect rect = { CGPointMake(0, 0), [imageBuilder imageSize] };
     if ((self = [super initWithFrame:rect])) {
