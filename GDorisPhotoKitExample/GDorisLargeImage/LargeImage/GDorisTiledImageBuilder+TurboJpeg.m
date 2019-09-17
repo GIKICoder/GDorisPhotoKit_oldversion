@@ -86,7 +86,7 @@ static void term_source(j_decompress_ptr cinfo);
         if(final || (im->outLine && !(im->outLine % TILE_SIZE))) {
             size_t rows = im->rows;        // fool tilebuilder into doing just one row
             if(!final) im->rows = im->row + 1;        // just do one tile row
-            self.failed = ![self tileBuilder:im useMMAP:YES];
+            self.failed = ![self tileBuilder:im useMMAP:NO];
             if(self.failed) {
                 return NO;
             }

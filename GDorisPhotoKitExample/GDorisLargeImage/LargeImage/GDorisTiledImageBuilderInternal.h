@@ -10,10 +10,10 @@
 #define GDorisTiledImageBuilderInternal_h
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#define TIMING_STATS            0        // set to 1 if you want to see how long things take
+#define TIMING_STATS            1       // set to 1 if you want to see how long things take
 #define MEMORY_DEBUGGING        1        // set to 1 if you want to see how memory changes when images are processed
-#define MMAP_DEBUGGING            0        // set to 1 to see how mmap/munmap working
-#define MAPPING_IMAGES            0        // set to 1 to use MMAP for image tile retrieval - if 0 use pread
+#define MMAP_DEBUGGING            1        // set to 1 to see how mmap/munmap working
+#define MAPPING_IMAGES            1        // set to 1 to use MMAP for image tile retrieval - if 0 use pread
 #define USE_VIMAGE                0        // set to 1 if you want vImage to downsize images (slightly better quality, much much slower)
 #define LEVELS_INIT                0        // set to 1 if you want to specify the levels in the init method instead of using the target view size
 #include <libkern/OSAtomic.h>

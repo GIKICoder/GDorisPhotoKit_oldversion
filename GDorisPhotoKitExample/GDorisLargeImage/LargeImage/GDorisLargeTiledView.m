@@ -61,7 +61,7 @@
 - (void)drawLayer:(CALayer*)layer inContext:(CGContextRef)context
 {
     if(self.builder.failed) return;
-    
+    NSLog(@"drawLayer -- lll");
     CGFloat scale = CGContextGetCTM(context).a;
     
     // Fetch clip box in *view* space; context's CTM is preconfigured for view space->tile space transform
