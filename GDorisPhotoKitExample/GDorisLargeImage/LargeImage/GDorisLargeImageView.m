@@ -8,7 +8,7 @@
 
 #import "GDorisLargeImageView.h"
 #import "GDorisLargeTiledView.h"
-#import "TiledImageBuilder.h"
+#import "GDorisTiledImageBuilder.h"
 @interface GDorisLargeImageView()
 @property (nonatomic, assign) CGFloat  scale;
 @end
@@ -80,8 +80,8 @@
     // reset our zoomScale to 1.0 before doing any further calculations
     self.zoomScale = 1.0;
     
-    if([obj isKindOfClass:[TiledImageBuilder class]]) {
-        TiledImageBuilder *tiledImage = (TiledImageBuilder *)obj;
+    if([obj isKindOfClass:[GDorisTiledImageBuilder  class]]) {
+        GDorisTiledImageBuilder  *tiledImage = (GDorisTiledImageBuilder  *)obj;
         size = [tiledImage imageSize];
         
         // make a new TilingView for the new image

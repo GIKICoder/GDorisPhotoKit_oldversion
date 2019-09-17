@@ -12,6 +12,8 @@
 @interface GDorisPhotoPickerBrowserCell()
 @property (nonatomic, strong) YYAnimatedImageView * animateImageView;
 @property (nonatomic, strong) UIActivityIndicatorView * photoIndicatorView;
+@property (nonatomic, copy  ) NSString * currentImageId;
+@property (nonatomic, assign) PHImageRequestID  imageRequestID;
 @end
 
 @implementation GDorisPhotoPickerBrowserCell
@@ -60,7 +62,7 @@
     /// photokit asset
     if (Doris_Select(photo, @selector(asset))) {
         if (photo.asset && [photo.asset isKindOfClass:XCAsset.class]) {
-            [self loadAssetItem:photo.asset];
+            [self loadAssetItem:photo];
         }
     }
 }
@@ -79,8 +81,9 @@
 
 #pragma mark - Private Method
 
-- (void)loadAssetItem:(XCAsset *)asset
+- (void)loadAssetItem:(id<IGDorisPhotoItem>)photo
 {
+    XCAsset * asset = photo.asset;
     BOOL isGif = (asset.assetSubType == XCAssetSubTypeGIF);
     __weak __typeof(self) weakSelf = self;
     CGSize size = asset.imageSize;
@@ -90,25 +93,42 @@
         // 更新 imageView 的大小时，imageView 可能已经被缩放过，所以要应用当前的缩放
         weakSelf.contentImageView.frame = CGRectApplyAffineTransform(containerFrame, weakSelf.contentImageView.transform);
     }];
-    UIImage * image  = [asset thumbnailWithSize:asset.imageSize];
-    self.contentImageView.image = image;
+    
+    if (Doris_Select(photo, @selector(thumbImage))) {
+        UIImage * image = photo.thumbImage;
+        if (image) {
+            self.contentImageView.image = image;
+        }
+    }
+    self.currentImageId = asset.identifier;
     if (isGif) {
         [asset requestImageData:^(NSData * _Nonnull imageData, NSDictionary<NSString *,id> * _Nonnull info, BOOL isGIF, BOOL isHEIC) {
             if (imageData) {
-                YYImage * image = [YYImage imageWithData:imageData];
-                weakSelf.contentImageView.image = image;
+                dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                    YYImage * image = [YYImage imageWithData:imageData];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        weakSelf.contentImageView.image = image;
+                        [weakSelf.photoIndicatorView stopAnimating];
+                    });
+                });
             }
-            [weakSelf.photoIndicatorView stopAnimating];
         }];
     } else {
-        [asset requestPreviewImageWithCompletion:^(UIImage * _Nonnull result, NSDictionary<NSString *,id> * _Nonnull info) {
-            if (result) {
+        NSInteger imageRequestID =  [asset requestThumbnailImageWithSize:asset.imageSize completion:^(UIImage * _Nonnull result, NSDictionary<NSString *,id> * _Nonnull info) {
+            
+            if ([asset.identifier isEqualToString:self.currentImageId] && result) {
                 weakSelf.contentImageView.image = result;
+            } else {
+                NSLog(@"cancelImageRequest");
+                [[PHImageManager defaultManager] cancelImageRequest:weakSelf.imageRequestID];
             }
             [weakSelf.photoIndicatorView stopAnimating];
-        } withProgressHandler:^(double progress, NSError * _Nullable error, BOOL * _Nonnull stop, NSDictionary * _Nullable info) {
-            
         }];
+        if (imageRequestID > 0 && self.imageRequestID > 0 && imageRequestID != self.imageRequestID) {
+            NSLog(@"cancelImageRequest2222222222");
+            [[PHImageManager defaultManager] cancelImageRequest:self.imageRequestID];
+        }
+        self.imageRequestID = imageRequestID;
     }
 }
 @end

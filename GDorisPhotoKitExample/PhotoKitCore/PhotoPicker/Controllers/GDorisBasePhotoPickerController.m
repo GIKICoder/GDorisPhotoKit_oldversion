@@ -324,21 +324,16 @@ typedef NS_ENUM(NSUInteger, GRecognizerState) {
 - (void)performReload:(NSArray*)indexpaths
 {
     __weak typeof(self) weakSelf = self;
-    [CATransaction begin];
-    [CATransaction setDisableActions:YES];
     if (!indexpaths || indexpaths.count <= 0) {
          [self.collectionView reloadData];
     } else {
-        [UIView performWithoutAnimation:^{
-            [self.collectionView performBatchUpdates:^{
-                if (indexpaths && indexpaths.count > 0) {
-                    [weakSelf.collectionView reloadItemsAtIndexPaths:indexpaths];
-                }
-            } completion:^(BOOL finished) {
-            }];
+        [self.collectionView performBatchUpdates:^{
+            if (indexpaths && indexpaths.count > 0) {
+                [weakSelf.collectionView reloadItemsAtIndexPaths:indexpaths];
+            }
+        } completion:^(BOOL finished) {
         }];
     }
-    [CATransaction commit];
 }
 
 - (void)collectionViewScroller
