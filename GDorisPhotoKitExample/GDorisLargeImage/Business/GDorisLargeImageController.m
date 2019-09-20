@@ -39,11 +39,10 @@
     dispatch_group_t group = dispatch_group_create();
     dispatch_queue_t que = dispatch_queue_create("com.dfh.PhotoScroller", DISPATCH_QUEUE_SERIAL);
     NSUInteger multiCore = [[NSProcessInfo processInfo] processorCount] - 1;
-    ///large_leaves_70mp
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Space6" ofType:@"jpg"];
+    ///large_leaves_70mp Space6
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"large_leaves_70mp" ofType:@"jpg"];
     [self.tileBuilders addObject:@""];
-    // Normal Case
-    // thread if we have multiple cores
+
     dispatch_group_async(group, multiCore ? dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) : que, ^
                          {
                              GDorisTiledImageBuilder *tb = [[GDorisTiledImageBuilder alloc] initWithImagePath:path withDecode:0 size:CGSizeMake(320, 320) orientation:0];
@@ -61,8 +60,6 @@
                                           self.ok2tile = YES;
                                           [self tilePages];
                                       });
-                       //dispatch_release(group);
-                       //dispatch_release(que);
                    } );
 }
 
