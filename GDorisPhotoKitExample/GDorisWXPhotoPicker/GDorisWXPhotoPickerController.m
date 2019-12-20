@@ -50,6 +50,7 @@
 {
     GDorisWXAlbumViewController * albumVC = [GDorisWXAlbumViewController WXAlbumViewController:self.configuration];
     UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:albumVC];
+    nav.modalPresentationStyle = UIModalPresentationFullScreen;
     [albumVC.navigationController pushViewController:self animated:NO];
     [targetController presentViewController:nav animated:YES completion:nil];
 }

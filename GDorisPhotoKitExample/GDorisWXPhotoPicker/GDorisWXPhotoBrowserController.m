@@ -167,6 +167,7 @@
     NSIndexPath *currentIndexPath = [self currentIndexPath];
     GDorisAssetItem * asset = [self.PhotoDatas objectAtIndex:currentIndexPath.item];
     GDorisWXPhotoEditController * controller = [[GDorisWXPhotoEditController alloc] initWithImage:[asset.asset previewImage]];
+    controller.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:controller animated:NO completion:nil];
 }
 
