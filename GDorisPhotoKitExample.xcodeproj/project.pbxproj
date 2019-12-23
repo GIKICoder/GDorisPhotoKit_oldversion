@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B38EB5423B0F97D00BBFAC0 /* GDorisPhotoEditerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38EB5323B0F97D00BBFAC0 /* GDorisPhotoEditerController.m */; };
+		2B38EB5F23B0FBB900BBFAC0 /* GDorisEditerToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38EB5523B0FBB800BBFAC0 /* GDorisEditerToolbar.m */; };
+		2B38EB6023B0FBB900BBFAC0 /* GDorisEditerColorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38EB5623B0FBB800BBFAC0 /* GDorisEditerColorPanel.m */; };
+		2B38EB6123B0FBB900BBFAC0 /* GDorisEditerHitTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38EB5723B0FBB800BBFAC0 /* GDorisEditerHitTestView.m */; };
+		2B38EB6223B0FBB900BBFAC0 /* GDorisEditerCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38EB5923B0FBB800BBFAC0 /* GDorisEditerCropToolbar.m */; };
+		2B38EB6323B0FBB900BBFAC0 /* GDorisEditerCropMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38EB5E23B0FBB900BBFAC0 /* GDorisEditerCropMaskView.m */; };
 		2B4B144D2320F8070017ADB1 /* GDoirsPhotoPickerToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4B144C2320F8070017ADB1 /* GDoirsPhotoPickerToolbar.m */; };
 		2B4B14502320F9A20017ADB1 /* GDorisIMGButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4B144F2320F9A20017ADB1 /* GDorisIMGButton.m */; };
 		2B4B14532320F9B70017ADB1 /* GAdjustButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4B14522320F9B70017ADB1 /* GAdjustButton.m */; };
@@ -130,6 +136,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B38EB5223B0F97D00BBFAC0 /* GDorisPhotoEditerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoEditerController.h; sourceTree = "<group>"; };
+		2B38EB5323B0F97D00BBFAC0 /* GDorisPhotoEditerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoEditerController.m; sourceTree = "<group>"; };
+		2B38EB5523B0FBB800BBFAC0 /* GDorisEditerToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisEditerToolbar.m; sourceTree = "<group>"; };
+		2B38EB5623B0FBB800BBFAC0 /* GDorisEditerColorPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisEditerColorPanel.m; sourceTree = "<group>"; };
+		2B38EB5723B0FBB800BBFAC0 /* GDorisEditerHitTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisEditerHitTestView.m; sourceTree = "<group>"; };
+		2B38EB5823B0FBB800BBFAC0 /* GDorisEditerColorPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisEditerColorPanel.h; sourceTree = "<group>"; };
+		2B38EB5923B0FBB800BBFAC0 /* GDorisEditerCropToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisEditerCropToolbar.m; sourceTree = "<group>"; };
+		2B38EB5A23B0FBB900BBFAC0 /* GDorisEditerHitTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisEditerHitTestView.h; sourceTree = "<group>"; };
+		2B38EB5B23B0FBB900BBFAC0 /* GDorisEditerCropMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisEditerCropMaskView.h; sourceTree = "<group>"; };
+		2B38EB5C23B0FBB900BBFAC0 /* GDorisEditerToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisEditerToolbar.h; sourceTree = "<group>"; };
+		2B38EB5D23B0FBB900BBFAC0 /* GDorisEditerCropToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisEditerCropToolbar.h; sourceTree = "<group>"; };
+		2B38EB5E23B0FBB900BBFAC0 /* GDorisEditerCropMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisEditerCropMaskView.m; sourceTree = "<group>"; };
 		2B4B144B2320F8070017ADB1 /* GDoirsPhotoPickerToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDoirsPhotoPickerToolbar.h; sourceTree = "<group>"; };
 		2B4B144C2320F8070017ADB1 /* GDoirsPhotoPickerToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDoirsPhotoPickerToolbar.m; sourceTree = "<group>"; };
 		2B4B144E2320F9A20017ADB1 /* GDorisIMGButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDorisIMGButton.h; sourceTree = "<group>"; };
@@ -387,9 +405,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2B38EB4E23B0F90E00BBFAC0 /* DorisPhotoEditer */ = {
+			isa = PBXGroup;
+			children = (
+				2B38EB5823B0FBB800BBFAC0 /* GDorisEditerColorPanel.h */,
+				2B38EB5623B0FBB800BBFAC0 /* GDorisEditerColorPanel.m */,
+				2B38EB5B23B0FBB900BBFAC0 /* GDorisEditerCropMaskView.h */,
+				2B38EB5E23B0FBB900BBFAC0 /* GDorisEditerCropMaskView.m */,
+				2B38EB5D23B0FBB900BBFAC0 /* GDorisEditerCropToolbar.h */,
+				2B38EB5923B0FBB800BBFAC0 /* GDorisEditerCropToolbar.m */,
+				2B38EB5A23B0FBB900BBFAC0 /* GDorisEditerHitTestView.h */,
+				2B38EB5723B0FBB800BBFAC0 /* GDorisEditerHitTestView.m */,
+				2B38EB5C23B0FBB900BBFAC0 /* GDorisEditerToolbar.h */,
+				2B38EB5523B0FBB800BBFAC0 /* GDorisEditerToolbar.m */,
+				2B38EB5223B0F97D00BBFAC0 /* GDorisPhotoEditerController.h */,
+				2B38EB5323B0F97D00BBFAC0 /* GDorisPhotoEditerController.m */,
+			);
+			path = DorisPhotoEditer;
+			sourceTree = "<group>";
+		};
 		2BA1A775231FF4BD0047CAED /* GDorisPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				2B38EB4E23B0F90E00BBFAC0 /* DorisPhotoEditer */,
 				2BA1A85A23200C340047CAED /* DorisPhotoPickerBrowser */,
 				2BA1A85923200C200047CAED /* DorisPhotoPicker */,
 			);
@@ -1130,9 +1168,11 @@
 				2BA1A839231FF4DB0047CAED /* GDorisCanvasView.m in Sources */,
 				2BA1A7AA231FF4BE0047CAED /* GNavigationButton.m in Sources */,
 				2BA1A7AE231FF4BE0047CAED /* GDorisWXEditCropToolbar.m in Sources */,
+				2B38EB6223B0FBB900BBFAC0 /* GDorisEditerCropToolbar.m in Sources */,
 				2BA1A79F231FF4BE0047CAED /* ViewController.m in Sources */,
 				2BA1A82B231FF4DB0047CAED /* GDorisPhotoAlbumCell.m in Sources */,
 				2BA1A7AF231FF4BE0047CAED /* GDorisWXEditColorPanel.m in Sources */,
+				2B38EB6023B0FBB900BBFAC0 /* GDorisEditerColorPanel.m in Sources */,
 				2BA1A840231FF4DB0047CAED /* UIImage+GDorisCropRotate.m in Sources */,
 				2BA1A842231FF4DB0047CAED /* GDorisCropOverlayView.m in Sources */,
 				2BA1A83C231FF4DB0047CAED /* GDorisPhotoInputView.m in Sources */,
@@ -1152,16 +1192,19 @@
 				2BBF095A21B80D02006132E6 /* AppDelegate.m in Sources */,
 				2BA1A7A0231FF4BE0047CAED /* GDorisWXPhotoEditController.m in Sources */,
 				2BA1A7A3231FF4BE0047CAED /* GDorisWXAlbumViewController.m in Sources */,
+				2B38EB5F23B0FBB900BBFAC0 /* GDorisEditerToolbar.m in Sources */,
 				2BA1A83A231FF4DB0047CAED /* UIImage+GDorisDraw.m in Sources */,
 				2BA1A83E231FF4DB0047CAED /* GDorisDragDropView.m in Sources */,
 				2B4B14532320F9B70017ADB1 /* GAdjustButton.m in Sources */,
 				2BA1A83D231FF4DB0047CAED /* GDorisInputViewController.m in Sources */,
 				2BA1A836231FF4DB0047CAED /* GDorisVertex.m in Sources */,
 				2BA1A7A6231FF4BE0047CAED /* GDorisWXThumbnailContainer.m in Sources */,
+				2B38EB6323B0FBB900BBFAC0 /* GDorisEditerCropMaskView.m in Sources */,
 				2BA1A83B231FF4DB0047CAED /* GDorisPhotoTextView.m in Sources */,
 				2BA1A83F231FF4DB0047CAED /* GDorisCropView.m in Sources */,
 				2BA1A852231FF9270047CAED /* GDorisBasePhotoPickerBrowserController.m in Sources */,
 				2BA1A834231FF4DB0047CAED /* XCAsset.m in Sources */,
+				2B38EB5423B0F97D00BBFAC0 /* GDorisPhotoEditerController.m in Sources */,
 				2BA1A82D231FF4DB0047CAED /* UICollectionViewCell+GDorisWorker.m in Sources */,
 				2BA1A86523200D140047CAED /* GDorisPhotoPickerController.m in Sources */,
 				2BA1A7A4231FF4BE0047CAED /* GDorisWXToolbar.m in Sources */,
@@ -1188,6 +1231,7 @@
 				2BA1A7AD231FF4BE0047CAED /* GNavigationItem.m in Sources */,
 				2BD84B7723225CE60016DF2E /* GDorisLargeImageController.m in Sources */,
 				2BA1A832231FF4DB0047CAED /* GDorisPhotoHelper.m in Sources */,
+				2B38EB6123B0FBB900BBFAC0 /* GDorisEditerHitTestView.m in Sources */,
 				2BD84B91232406B70016DF2E /* GDorisTiledImageBuilder.m in Sources */,
 				2BA1A841231FF4DB0047CAED /* GDorisCropScrollView.m in Sources */,
 			);

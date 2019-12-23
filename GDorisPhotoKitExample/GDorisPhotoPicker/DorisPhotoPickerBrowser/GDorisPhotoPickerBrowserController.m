@@ -18,6 +18,7 @@
 #import "Masonry.h"
 #import "MBProgressHUD.h"
 #import "UIView+GDoris.h"
+#import "GDorisPhotoEditerController.h"
 @interface GDorisPhotoPickerBrowserController ()
 @property (nonatomic, strong) GNavigationBar * navigationBar;
 @property (nonatomic, strong) GDorisAnimatedButton * selectCountBtn;
@@ -119,8 +120,9 @@
     self.browserToolbar = [[GDoirsPhotoPickerToolbar alloc] initWithFrame:CGRectMake(0, 80, G_SCREEN_WIDTH, 44+GDoris_TabBarMargin)];
     self.browserToolbar.backgroundColor = [GDorisPhotoHelper colorWithHex:@"000000" alpha:0.6];
     [self.bottomContainer addSubview:self.browserToolbar];
-    //    [self.browserToolbar.leftButton setTitle:@"编辑" forState:UIControlStateNormal];
+    [self.browserToolbar.leftButton setTitle:@"编辑" forState:UIControlStateNormal];
     [self.browserToolbar.rightButton setTitle:self.functionTitle forState:UIControlStateNormal];
+    self.browserToolbar.leftButton.enabled = YES;
     self.browserToolbar.userInteractionEnabled = YES;
     __weak typeof(self) weakSelf = self;
     self.browserToolbar.photoToolbarClickBlock = ^(DorisPhotoPickerToolbarType itemType) {
@@ -154,7 +156,7 @@
 - (void)browserToolbarClick:(DorisPhotoPickerToolbarType)itemType
 {
     if (itemType == DorisPhotoPickerToolbarLeft) {
-        
+        [self photoEidterAction];
     } else if (itemType == DorisPhotoPickerToolbarRight) {
         NSArray * selectItems = [self getSelectAssets];
         if (self.delegate && [self.delegate respondsToSelector:@selector(dorisPhotoBrowser:didFinishPickingAssets:)]) {
@@ -228,6 +230,17 @@
         self.bottomContainer.hidden = hidden;
     }
 }
+
+- (void)photoEidterAction
+{
+    [self setToolbarHidden:YES animated:NO];
+    NSIndexPath *currentIndexPath = [self currentIndexPath];
+    GDorisAssetItem * asset = [self.PhotoDatas objectAtIndex:currentIndexPath.item];
+    GDorisPhotoEditerController  * controller =  [GDorisPhotoEditerController photoEditerWithAsset:asset image:[asset.asset previewImage]];
+    controller.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:controller animated:NO completion:nil];
+}
+
 #pragma mark - helper Method
 
 - (BOOL)canselect:(GDorisAssetItem *)asset
