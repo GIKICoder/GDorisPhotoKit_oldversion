@@ -9,26 +9,26 @@
 #import "GDorisPhotoEditerController.h"
 #import "GDorisPhotoHelper.h"
 #import "GNavigationBar.h"
-#import "GDorisWXEditToolbar.h"
+#import "GDorisEditerToolbar.h"
 #import "GDorisCanvasView.h"
-#import "GDorisWXEditColorPanel.h"
+#import "GDorisEditerColorPanel.h"
 #import "UIView+GDoris.h"
 #import "GDorisWXEditHitTestView.h"
 #import "UIImage+GDorisDraw.h"
 #import "GDorisWXPhotoCropController.h"
 #import "GDorisInputViewController.h"
 #import "GDorisDragDropView.h"
-#import "GDorisWXEditCropMaskView.h"
+#import "GDorisEditerCropMaskView.h"
 
 @interface GDorisPhotoEditerController ()<UIScrollViewDelegate,UIGestureRecognizerDelegate/*,TOCropViewControllerDelegate*/>
 @property (nonatomic, strong) GDorisWXEditHitTestView * operationArea;
 @property (nonatomic, strong) GNavigationBar * navigationBar;
-@property (nonatomic, strong) GDorisWXEditToolbar * toolBar;
-@property (nonatomic, strong) GDorisWXEditColorPanel * colorPanel;
-@property (nonatomic, strong) GDorisWXEditMosaicPanel * mosaicPanel;
+@property (nonatomic, strong) GDorisEditerToolbar * toolBar;
+@property (nonatomic, strong) GDorisEditerColorPanel * colorPanel;
+@property (nonatomic, strong) GDorisEditerMosaicPanel * mosaicPanel;
 @property (nonatomic, strong) GDorisCanvasView * canvasView;
 @property (nonatomic, strong) GDorisCanvasView * mosaicView;
-@property (nonatomic, strong) GDorisWXEditCropMaskView * cropMaskView;
+@property (nonatomic, strong) GDorisEditerCropMaskView * cropMaskView;
 
 @property (nonatomic, strong) UIScrollView * scrollerContainer;
 @property (nonatomic, strong) UIImageView * imageView;
@@ -144,10 +144,10 @@
 
 - (void)loadToolbar
 {
-    self.toolBar = [[GDorisWXEditToolbar alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-50, [UIScreen mainScreen].bounds.size.width, 37)];
+    self.toolBar = [[GDorisEditerToolbar alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-50, [UIScreen mainScreen].bounds.size.width, 37)];
     self.toolBar.backgroundColor = GDorisColorA(0, 0, 0, 0.01);
     __weak typeof(self) weakSelf = self;
-    self.toolBar.editToolbarClickBlock = ^(DorisEditToolbarItemType itemType,UIButton * sender) {
+    self.toolBar.editToolbarClickBlock = ^(DorisEditerToolbarItemType itemType,UIButton * sender) {
         [weakSelf editToolbarClick:itemType button:sender];
     };
     [self.operationArea addSubview:self.toolBar];
@@ -167,27 +167,27 @@
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
-- (void)editToolbarClick:(DorisEditToolbarItemType)itemType button:(UIButton *)sender
+- (void)editToolbarClick:(DorisEditerToolbarItemType)itemType button:(UIButton *)sender
 {
     switch (itemType) {
-        case DorisEditToolbarItemDraw:
+        case DorisEditerToolbarItemDraw:
         {
-            [self.toolBar setToolbarSelected:!sender.selected itemType:DorisEditToolbarItemDraw];
+            [self.toolBar setToolbarSelected:!sender.selected itemType:DorisEditerToolbarItemDraw];
             [self drawPhoto:sender.selected];
         }
             break;
-        case DorisEditToolbarItemMosaic:
+        case DorisEditerToolbarItemMosaic:
         {
-            [self.toolBar setToolbarSelected:!sender.selected itemType:DorisEditToolbarItemMosaic];
+            [self.toolBar setToolbarSelected:!sender.selected itemType:DorisEditerToolbarItemMosaic];
             [self drawMosaic:sender.selected];
         }
             break;
-        case DorisEditToolbarItemCrop:
+        case DorisEditerToolbarItemCrop:
         {
             [self cropPhoto];
         }
             break;
-        case DorisEditToolbarItemText:
+        case DorisEditerToolbarItemText:
         {
             [self textPhoto];
         }
@@ -409,10 +409,10 @@
     }
     return _mosaicView;
 }
-- (GDorisWXEditColorPanel *)colorPanel
+- (GDorisEditerColorPanel *)colorPanel
 {
     if (!_colorPanel) {
-        _colorPanel = [[GDorisWXEditColorPanel alloc] initWithFrame:CGRectMake(0, self.toolBar.g_top-63, [UIScreen mainScreen].bounds.size.width, 63)];
+        _colorPanel = [[GDorisEditerColorPanel alloc] initWithFrame:CGRectMake(0, self.toolBar.g_top-63, [UIScreen mainScreen].bounds.size.width, 63)];
         _colorPanel.hidden = YES;
         [_colorPanel configColors:[self colorPanelColors]];
         [_colorPanel setRevokeEnabled:NO];
@@ -439,10 +439,10 @@
              GDorisColor(140, 6, 255)];
 }
 
-- (GDorisWXEditMosaicPanel *)mosaicPanel
+- (GDorisEditerMosaicPanel *)mosaicPanel
 {
     if (!_mosaicPanel) {
-        _mosaicPanel = [[GDorisWXEditMosaicPanel alloc] initWithFrame:CGRectMake(0, self.toolBar.g_top-63, [UIScreen mainScreen].bounds.size.width, 63)];
+        _mosaicPanel = [[GDorisEditerMosaicPanel alloc] initWithFrame:CGRectMake(0, self.toolBar.g_top-63, [UIScreen mainScreen].bounds.size.width, 63)];
         _mosaicPanel.hidden = YES;
         [self.operationArea addSubview:_mosaicPanel];
         __weak typeof(self) weakSelf = self;
@@ -471,10 +471,10 @@
     return _dragViews;
 }
 
-- (GDorisWXEditCropMaskView *)cropMaskView
+- (GDorisEditerCropMaskView *)cropMaskView
 {
     if (!_cropMaskView) {
-        _cropMaskView = [[GDorisWXEditCropMaskView alloc] initWithFrame:self.imageView.bounds];
+        _cropMaskView = [[GDorisEditerCropMaskView alloc] initWithFrame:self.imageView.bounds];
         [self.imageView addSubview:_cropMaskView];
         [self bringSubviewToFront];
     }
