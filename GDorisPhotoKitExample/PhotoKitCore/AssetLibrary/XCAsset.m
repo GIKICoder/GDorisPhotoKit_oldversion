@@ -1,9 +1,9 @@
 //
 //  XCAsset.m
-//  GDoris
+//  XCChat
 //
 //  Created by GIKI on 2019/8/13.
-//  Copyright © 2019 GIKI. All rights reserved.
+//  Copyright © 2019 xiaochuankeji. All rights reserved.
 //
 
 #import "XCAsset.h"
@@ -71,13 +71,29 @@ static NSString * const kAssetInfoSize = @"size";
 
 - (UIImage *)originImage {
     __block UIImage *resultImage = nil;
+
     PHImageRequestOptions *phImageRequestOptions = [[PHImageRequestOptions alloc] init];
-    phImageRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
-    phImageRequestOptions.networkAccessAllowed = YES;
     phImageRequestOptions.synchronous = YES;
-    [[[ XCAssetsManager sharedInstance] phCachingImageManager] requestImageDataForAsset:_phAsset options:phImageRequestOptions resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-        resultImage = [UIImage imageWithData:imageData];
-    }];
+    phImageRequestOptions.resizeMode = PHImageRequestOptionsResizeModeExact;
+    [[[XCAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset
+                                                                        targetSize:CGSizeMake(_phAsset.pixelWidth, _phAsset.pixelHeight)
+                                                                       contentMode:PHImageContentModeDefault
+                                                                           options:phImageRequestOptions
+                                                                     resultHandler:^(UIImage *result, NSDictionary *info) {
+                                                                         resultImage = result;
+                                                                     }];
+    if (!resultImage) {
+        PHImageRequestOptions *phImageRequestOptions = [[PHImageRequestOptions alloc] init];
+        phImageRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+        phImageRequestOptions.networkAccessAllowed = YES;
+        phImageRequestOptions.synchronous = YES;
+        [[[XCAssetsManager sharedInstance] phCachingImageManager] requestImageDataForAsset:_phAsset options:phImageRequestOptions resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+            resultImage = [UIImage imageWithData:imageData];
+        }];
+        if (resultImage == nil) {//针对视频取不到原图的情况进行处理
+            resultImage = [self previewImage];
+        }
+    }
     return resultImage;
 }
 
@@ -111,7 +127,14 @@ static NSString * const kAssetInfoSize = @"size";
                                                                       resultHandler:^(UIImage *result, NSDictionary *info) {
                                                                           resultImage = result;
                                                                       }];
+    if (resultImage == nil) {//针对视频没有预览图的情况进行处理
+        CGFloat ScreenScale = [[UIScreen mainScreen] scale];
+        resultImage = [self thumbnailWithSize:CGSizeMake(_phAsset.pixelWidth/ScreenScale, _phAsset.pixelHeight/ScreenScale)];
+    }
     
+    if (resultImage == nil) {//如果视频取大缩略图失败、重新尝试取小缩略图
+        resultImage = [self thumbnailWithSize:CGSizeMake(100, 100)];
+    }
     return resultImage;
 }
 
@@ -122,6 +145,17 @@ static NSString * const kAssetInfoSize = @"size";
     return [[[ XCAssetsManager sharedInstance] phCachingImageManager] requestImageDataForAsset:_phAsset options:imageRequestOptions resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
         if (completion) {
             completion([UIImage imageWithData:imageData], info);
+        }
+    }];
+}
+
+- (NSInteger)requestOriginImageDataWithCompletion:(void (^)(NSData *result, NSDictionary<NSString *, id> *info))completion withProgressHandler:(PHAssetImageProgressHandler)phProgressHandler {
+    PHImageRequestOptions *imageRequestOptions = [[PHImageRequestOptions alloc] init];
+    imageRequestOptions.networkAccessAllowed = YES; // 允许访问网络
+    imageRequestOptions.progressHandler = phProgressHandler;
+    return [[[ XCAssetsManager sharedInstance] phCachingImageManager] requestImageDataForAsset:_phAsset options:imageRequestOptions resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+        if (completion) {
+            completion(imageData, info);
         }
     }];
 }
@@ -149,7 +183,7 @@ static NSString * const kAssetInfoSize = @"size";
     }];
 }
 
-- (NSInteger)requestLivePhotoWithCompletion:(void (^)(PHLivePhoto *livePhoto, NSDictionary<NSString *, id> *info))completion withProgressHandler:(PHAssetImageProgressHandler)phProgressHandler {
+- (NSInteger)requestLivePhotoWithCompletion:(void (^)(PHLivePhoto *livePhoto, NSDictionary<NSString *, id> *info))completion  withProgressHandler:(PHAssetImageProgressHandler)phProgressHandler NS_AVAILABLE_IOS(9_1) {
     if ([[PHCachingImageManager class] instancesRespondToSelector:@selector(requestLivePhotoForAsset:targetSize:contentMode:options:resultHandler:)]) {
         PHLivePhotoRequestOptions *livePhotoRequestOptions = [[PHLivePhotoRequestOptions alloc] init];
         livePhotoRequestOptions.networkAccessAllowed = YES; // 允许访问网络
@@ -210,9 +244,33 @@ static NSString * const kAssetInfoSize = @"size";
                     UIImage *newImage = [UIImage imageWithCGImage:oldImage.CGImage
                                                             scale:1
                                                       orientation:(UIImageOrientation)[strongSelf.phAssetInfo[kAssetInfoOrientation] integerValue]];
-                    UIImage *newFixImage = [weakSelf fixOrientation:newImage];
+                    UIImage *newFixImage = [strongSelf fixOrientation:newImage];
                     NSData *newImageData = UIImageJPEGRepresentation(newFixImage, 0.75);
                     completion(newImageData, originInfo, isGIF,isHEIC);
+                    /* todo by GIKI
+                    @autoreleasepool {
+                        UIImage *oldImage = [UIImage imageWithData:phAssetInfo[kAssetInfoImageData]];
+                        if (!oldImage) oldImage = [strongSelf previewImage];
+                        
+                        if (!oldImage) {
+                            completion(nil, originInfo, isGIF, isHEIC);
+                            return;
+                        }
+                        
+                        UIImage *newFixImage = [oldImage fixOrientation];
+                        newFixImage = [newFixImage custromCompressImageWithMaxWidth:newFixImage.size.width maxLength:20*1024*1024];
+                        NSData *newImageData = [UIImage dataFromImage:newFixImage];
+                        completion(newImageData, originInfo, isGif);
+                        if (newImageData == nil) {
+//                            NSString *log = [NSString stringWithFormat:@"sourcePath is %@,oldImage is %@,newFixImage is %@ ,phAssetInfo is %@",self.sourcePath,oldImage,newFixImage,phAssetInfo];
+//                            [[ZYRuntimeLogManager shareRuntimeLogManager] reportRunTimeLog:log customKey:IMAGE_UPLOAD_ERROR_IMAGE_DATA_NIL_REPORT];
+                        }
+                        if (newImageData && newImageData.length > 20*1024*1024) {
+//                            NSString *log = [NSString stringWithFormat:@"new image data length = %lu, original image data length = %lld",newImageData.length,[_phAssetInfo[kAssetInfoSize] longLongValue]];
+//                            [[ZYRuntimeLogManager shareRuntimeLogManager] reportRunTimeLog:log customKey:IMAGE_UPLOAD_ERROR_IMAGE_DATA_LENGTH_REPORT];
+                        }
+                    }
+                    */
                 }
             }
         }];
@@ -229,13 +287,14 @@ static NSString * const kAssetInfoSize = @"size";
                 UIImage *newImage = [UIImage imageWithCGImage:oldImage.CGImage
                                                         scale:1
                                                   orientation:(UIImageOrientation)[self.phAssetInfo[kAssetInfoOrientation] integerValue]];
-                UIImage *newFixImage = [weakSelf fixOrientation:newImage];
+                UIImage *newFixImage = [self fixOrientation:newImage];
                 NSData *newImageData = UIImageJPEGRepresentation(newFixImage, 0.75);
                 completion(newImageData, originInfo, isGIF,isHEIC);
             }
         }
     }
 }
+
 
 - (UIImageOrientation)imageOrientation {
     UIImageOrientation orientation;
@@ -298,7 +357,8 @@ static NSString * const kAssetInfoSize = @"size";
     PHImageRequestOptions *imageRequestOptions = [[PHImageRequestOptions alloc] init];
     imageRequestOptions.synchronous = synchronous;
     imageRequestOptions.networkAccessAllowed = YES;
-    [[[ XCAssetsManager sharedInstance] phCachingImageManager] requestImageDataForAsset:_phAsset options:imageRequestOptions resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) {
+    
+    [[[XCAssetsManager sharedInstance] phCachingImageManager] requestImageDataForAsset:_phAsset options:imageRequestOptions resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) {
         if (info) {
             NSMutableDictionary *tempInfo = [[NSMutableDictionary alloc] init];
             if (imageData) {
@@ -338,7 +398,7 @@ static NSString * const kAssetInfoSize = @"size";
         NSString *PATH_MOVIE_FILE = [NSTemporaryDirectory() stringByAppendingPathComponent:fileName];
         [[NSFileManager defaultManager] removeItemAtPath:PATH_MOVIE_FILE error:nil];
         
-        if (_phAsset.mediaSubtypes == PHAssetMediaSubtypeVideoHighFrameRate || [[[UIDevice currentDevice] systemVersion] floatValue] < 9.0) {
+        if (_phAsset.mediaSubtypes == PHAssetMediaSubtypeVideoHighFrameRate) {
             [[PHImageManager defaultManager] requestExportSessionForVideo:_phAsset options:options exportPreset:AVAssetExportPreset960x540 resultHandler:^(AVAssetExportSession * _Nullable exportSession, NSDictionary * _Nullable info) {
                 NSString *savePath = PATH_MOVIE_FILE;
                 exportSession.outputURL = [NSURL fileURLWithPath:savePath];
@@ -389,8 +449,7 @@ static NSString * const kAssetInfoSize = @"size";
                                                                      }
                                                                  }];
             } else {
-                // Fallback on earlier versions
-                completion(nil);
+                [weakSelf subRequestVideoURL:completion];
             }
         }
         
@@ -484,7 +543,6 @@ static NSString * const kAssetInfoSize = @"size";
 {
     return (_phAsset.pixelWidth > 0 && _phAsset.pixelHeight / _phAsset.pixelWidth > 2.5f);
 }
-
 
 
 - (UIImage *)fixOrientation:(UIImage *)target
