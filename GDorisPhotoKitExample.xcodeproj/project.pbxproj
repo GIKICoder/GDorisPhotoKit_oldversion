@@ -434,16 +434,14 @@
 			path = GDorisPhotoPicker;
 			sourceTree = "<group>";
 		};
-		2BA1A777231FF4BD0047CAED /* GDorisWXPhotoPicker */ = {
+		2BA1A777231FF4BD0047CAED /* GDorisWXPhotoPicker-invalid */ = {
 			isa = PBXGroup;
 			children = (
 				2BA1A84C231FF6940047CAED /* WXPhotoEidt */,
 				2BA1A84B231FF65F0047CAED /* WXPhotoPickerBrowser */,
 				2BA1A84A231FF64B0047CAED /* WXPhotoPicker */,
-				2BA1A789231FF4BD0047CAED /* GNavigationBar */,
-				2BA1A799231FF4BD0047CAED /* Utility */,
 			);
-			path = GDorisWXPhotoPicker;
+			path = "GDorisWXPhotoPicker-invalid";
 			sourceTree = "<group>";
 		};
 		2BA1A789231FF4BD0047CAED /* GNavigationBar */ = {
@@ -811,7 +809,7 @@
 				2BD84B372322588B0016DF2E /* GDorisLargeImage */,
 				2BA1A85C23200C520047CAED /* GDorisPhotoBrowser */,
 				2BA1A775231FF4BD0047CAED /* GDorisPhotoPicker */,
-				2BA1A777231FF4BD0047CAED /* GDorisWXPhotoPicker */,
+				2BA1A777231FF4BD0047CAED /* GDorisWXPhotoPicker-invalid */,
 				2BA1A7B2231FF4DB0047CAED /* PhotoKitCore */,
 				2BA1A774231FF4BD0047CAED /* ViewController.h */,
 				2BA1A776231FF4BD0047CAED /* ViewController.m */,
@@ -819,6 +817,8 @@
 				2BBF095921B80D02006132E6 /* AppDelegate.m */,
 				2BA1A84E231FF7AF0047CAED /* UINavigationController+XCCStatusBar.h */,
 				2BA1A84D231FF7AF0047CAED /* UINavigationController+XCCStatusBar.m */,
+				2BA1A789231FF4BD0047CAED /* GNavigationBar */,
+				2BA1A799231FF4BD0047CAED /* Utility */,
 				2BBF095E21B80D02006132E6 /* Main.storyboard */,
 				2BBF096121B80D04006132E6 /* Assets.xcassets */,
 				2BBF096321B80D04006132E6 /* LaunchScreen.storyboard */,
